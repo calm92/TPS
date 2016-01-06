@@ -1,0 +1,8 @@
+E:\TPS_VS\FuncControl\FuncControl\bin\Debug\FuncControl.dll
+E:\TPS_VS\FuncControl\FuncControl\bin\Debug\FuncControl.pdb
+E:\TPS_VS\FuncControl\FuncControl\obj\Debug\FuncControl.csprojResolveAssemblyReference.cache
+E:\TPS_VS\FuncControl\FuncControl\obj\Debug\FuncControl.BaseControl.resources
+E:\TPS_VS\FuncControl\FuncControl\obj\Debug\FuncControl.csproj.GenerateResource.Cache
+E:\TPS_VS\FuncControl\FuncControl\obj\Debug\FuncControl.dll
+E:\TPS_VS\FuncControl\FuncControl\obj\Debug\FuncControl.pdb
+E:\TPS_VS\FuncControl\FuncControl\obj\Debug\FuncControl.Properties.Resources.resources

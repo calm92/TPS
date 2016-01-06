@@ -1,0 +1,7 @@
+D:\垃圾\vs\VariControl\VariControl\bin\Debug\VariControl.dll
+D:\垃圾\vs\VariControl\VariControl\bin\Debug\VariControl.pdb
+D:\垃圾\vs\VariControl\VariControl\obj\Debug\VarControl.csprojResolveAssemblyReference.cache
+D:\垃圾\vs\VariControl\VariControl\obj\Debug\VarControl.VarControl.resources
+D:\垃圾\vs\VariControl\VariControl\obj\Debug\VarControl.csproj.GenerateResource.Cache
+D:\垃圾\vs\VariControl\VariControl\obj\Debug\VariControl.dll
+D:\垃圾\vs\VariControl\VariControl\obj\Debug\VariControl.pdb

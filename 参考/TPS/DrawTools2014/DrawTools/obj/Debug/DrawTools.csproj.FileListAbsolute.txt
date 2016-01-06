@@ -1,0 +1,13 @@
+G:\TPS\DrawTools2014\DrawTools\bin\Debug\DrawTools.exe
+G:\TPS\DrawTools2014\DrawTools\bin\Debug\DrawTools.pdb
+G:\TPS\DrawTools2014\DrawTools\bin\Debug\DocToolkit.dll
+G:\TPS\DrawTools2014\DrawTools\bin\Debug\DocToolkit.pdb
+G:\TPS\DrawTools2014\DrawTools\obj\Debug\DrawTools.csprojResolveAssemblyReference.cache
+G:\TPS\DrawTools2014\DrawTools\obj\Debug\DrawTools.DrawArea.resources
+G:\TPS\DrawTools2014\DrawTools\obj\Debug\DrawTools.FrmAbout.resources
+G:\TPS\DrawTools2014\DrawTools\obj\Debug\DrawTools.MainForm.resources
+G:\TPS\DrawTools2014\DrawTools\obj\Debug\DrawTools.PropertiesDialog.resources
+G:\TPS\DrawTools2014\DrawTools\obj\Debug\DrawTools.Properties.Resources.resources
+G:\TPS\DrawTools2014\DrawTools\obj\Debug\DrawTools.csproj.GenerateResource.Cache
+G:\TPS\DrawTools2014\DrawTools\obj\Debug\DrawTools.exe
+G:\TPS\DrawTools2014\DrawTools\obj\Debug\DrawTools.pdb

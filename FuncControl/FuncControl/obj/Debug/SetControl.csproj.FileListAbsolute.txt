@@ -1,0 +1,14 @@
+E:\TPS_VS\FuncControl\FuncControl\bin\Debug\TpsControl.dll
+E:\TPS_VS\FuncControl\FuncControl\bin\Debug\TpsControl.pdb
+E:\TPS_VS\FuncControl\FuncControl\obj\Debug\TpsControl.Properties.Resources.resources
+E:\TPS_VS\FuncControl\FuncControl\obj\Debug\SetControl.csproj.GenerateResource.Cache
+E:\TPS_VS\FuncControl\FuncControl\obj\Debug\TpsControl.dll
+E:\TPS_VS\FuncControl\FuncControl\obj\Debug\TpsControl.pdb
+E:\TPS_VS\FuncControl\FuncControl\obj\Debug\FuncControl.BaseSetControl.resources
+E:\TPS_VS\FuncControl\FuncControl\obj\Debug\SetControl.csprojResolveAssemblyReference.cache
+E:\TPS_VS\FuncControl\FuncControl\obj\Debug\TpsControl.FlowFuncControl.resources
+E:\TPS_VS\FuncControl\FuncControl\obj\Debug\TpsControl.BaseMeterControl.resources
+E:\TPS_VS\FuncControl\FuncControl\obj\Debug\TpsControl.FuncHead.resources
+E:\TPS_VS\FuncControl\FuncControl\obj\Debug\TpsControl.FuncVarControl.resources
+E:\TPS_VS\FuncControl\FuncControl\obj\Debug\TpsControl.VarPanel.resources
+E:\TPS_VS\FuncControl\FuncControl\obj\Debug\TpsControl.TestVarPanel.resources

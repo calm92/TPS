@@ -1,0 +1,36 @@
+D:\InvoicePrint\Controls\obj\Debug\ResolveAssemblyReference.cache
+D:\InvoicePrint\Controls\obj\Debug\CustomControls.Control.DocumentSpace.resources
+D:\InvoicePrint\Controls\obj\Debug\CustomControls.Control.frmAbout.resources
+D:\InvoicePrint\Controls\obj\Debug\CustomControls.Control.frmSetting.resources
+D:\InvoicePrint\Controls\obj\Debug\CustomControls.BarCode.frmNotice.resources
+D:\InvoicePrint\Controls\obj\Debug\CustomControls.csproj.GenerateResource.Cache
+D:\InvoicePrint\Controls\obj\Debug\CustomControls.Properties.Resources.resources
+D:\InvoicePrint\Controls\obj\Debug\CustomControls.Designer.resources
+D:\InvoicePrint\Controls\bin\Debug\CustomControls.dll
+D:\InvoicePrint\Controls\bin\Debug\CustomControls.pdb
+D:\InvoicePrint\Controls\obj\Debug\CustomControls.dll
+D:\InvoicePrint\Controls\obj\Debug\CustomControls.pdb
+C:\Documents and Settings\Craxy_Mouse\Desktop\InvoicePrint\InvoicePrint\Controls\obj\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\Craxy_Mouse\Desktop\InvoicePrint\InvoicePrint\Controls\obj\Debug\CustomControls.Control.DocumentSpace.resources
+C:\Documents and Settings\Craxy_Mouse\Desktop\InvoicePrint\InvoicePrint\Controls\obj\Debug\CustomControls.Designer.resources
+C:\Documents and Settings\Craxy_Mouse\Desktop\InvoicePrint\InvoicePrint\Controls\obj\Debug\CustomControls.Properties.Resources.resources
+C:\Documents and Settings\Craxy_Mouse\Desktop\InvoicePrint\InvoicePrint\Controls\obj\Debug\CustomControls.Control.frmAbout.resources
+C:\Documents and Settings\Craxy_Mouse\Desktop\InvoicePrint\InvoicePrint\Controls\obj\Debug\CustomControls.Control.frmSetting.resources
+C:\Documents and Settings\Craxy_Mouse\Desktop\InvoicePrint\InvoicePrint\Controls\obj\Debug\CustomControls.BarCode.frmNotice.resources
+C:\Documents and Settings\Craxy_Mouse\Desktop\InvoicePrint\InvoicePrint\Controls\obj\Debug\CustomControls.csproj.GenerateResource.Cache
+C:\Documents and Settings\Craxy_Mouse\Desktop\InvoicePrint\InvoicePrint\Controls\obj\Debug\CustomControls.pdb
+C:\Documents and Settings\Craxy_Mouse\Desktop\InvoicePrint\InvoicePrint\Controls\bin\Debug\CustomControls.dll
+C:\Documents and Settings\Craxy_Mouse\Desktop\InvoicePrint\InvoicePrint\Controls\bin\Debug\CustomControls.pdb
+C:\Documents and Settings\Craxy_Mouse\Desktop\InvoicePrint\InvoicePrint\Controls\obj\Debug\CustomControls.dll
+G:\TPS\InvoicePrint\Controls\bin\Debug\CustomControls.dll
+G:\TPS\InvoicePrint\Controls\bin\Debug\CustomControls.pdb
+G:\TPS\InvoicePrint\Controls\obj\Debug\CustomControls.csprojResolveAssemblyReference.cache
+G:\TPS\InvoicePrint\Controls\obj\Debug\CustomControls.Control.DocumentSpace.resources
+G:\TPS\InvoicePrint\Controls\obj\Debug\CustomControls.Designer.resources
+G:\TPS\InvoicePrint\Controls\obj\Debug\CustomControls.Properties.Resources.resources
+G:\TPS\InvoicePrint\Controls\obj\Debug\CustomControls.Control.frmAbout.resources
+G:\TPS\InvoicePrint\Controls\obj\Debug\CustomControls.Control.frmSetting.resources
+G:\TPS\InvoicePrint\Controls\obj\Debug\CustomControls.BarCode.frmNotice.resources
+G:\TPS\InvoicePrint\Controls\obj\Debug\CustomControls.csproj.GenerateResource.Cache
+G:\TPS\InvoicePrint\Controls\obj\Debug\CustomControls.dll
+G:\TPS\InvoicePrint\Controls\obj\Debug\CustomControls.pdb

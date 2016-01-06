@@ -1,0 +1,12 @@
+E:\TPS_VS\MainForm\MainForm\bin\Debug\MainForm.exe.config
+E:\TPS_VS\MainForm\MainForm\bin\Debug\MainForm.exe
+E:\TPS_VS\MainForm\MainForm\bin\Debug\MainForm.pdb
+E:\TPS_VS\MainForm\MainForm\obj\Debug\MainForm.csprojResolveAssemblyReference.cache
+E:\TPS_VS\MainForm\MainForm\obj\Debug\MainForm.Properties.Resources.resources
+E:\TPS_VS\MainForm\MainForm\obj\Debug\MainForm.csproj.GenerateResource.Cache
+E:\TPS_VS\MainForm\MainForm\obj\Debug\MainForm.exe
+E:\TPS_VS\MainForm\MainForm\obj\Debug\MainForm.pdb
+E:\TPS_VS\MainForm\MainForm\obj\Debug\MainForm.MainForm.resources
+E:\TPS_VS\MainForm\MainForm\bin\Debug\FuncControl.pdb
+E:\TPS_VS\MainForm\MainForm\bin\Debug\TpsControl.dll
+E:\TPS_VS\MainForm\MainForm\bin\Debug\TpsControl.pdb

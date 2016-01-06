@@ -1,0 +1,133 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{9CAFB137-5A17-45B6-A837-09C9AE0E4AB8}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>TpsControl</RootNamespace>
+    <AssemblyName>TpsControl</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BaseMeterControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="BaseMeterControl.Designer.cs">
+      <DependentUpon>BaseMeterControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BaseSetControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="BaseSetControl.Designer.cs">
+      <DependentUpon>BaseSetControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FlowFuncControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FlowFuncControl.Designer.cs">
+      <DependentUpon>FlowFuncControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FuncHead.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FuncHead.Designer.cs">
+      <DependentUpon>FuncHead.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FuncVarControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FuncVarControl.Designer.cs">
+      <DependentUpon>FuncVarControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="TestVarPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="TestVarPanel.Designer.cs">
+      <DependentUpon>TestVarPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VarInfo.cs" />
+    <Compile Include="VarPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="VarPanel.Designer.cs">
+      <DependentUpon>VarPanel.cs</DependentUpon>
+    </Compile>
+    <Service Include="{94E38DFF-614B-4cbd-B67C-F211BB35CE8B}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="BaseMeterControl.resx">
+      <DependentUpon>BaseMeterControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BaseSetControl.resx">
+      <DependentUpon>BaseSetControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FlowFuncControl.resx">
+      <DependentUpon>FlowFuncControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FuncHead.resx">
+      <DependentUpon>FuncHead.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FuncVarControl.resx">
+      <DependentUpon>FuncVarControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TestVarPanel.resx">
+      <DependentUpon>TestVarPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VarPanel.resx">
+      <DependentUpon>VarPanel.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\buttonBackImage.JPG" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

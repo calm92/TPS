@@ -1,0 +1,5 @@
+G:\TPS\DrawTools2014\DocToolkit\bin\Debug\DocToolkit.dll
+G:\TPS\DrawTools2014\DocToolkit\bin\Debug\DocToolkit.pdb
+G:\TPS\DrawTools2014\DocToolkit\obj\Debug\DocToolkit.csprojResolveAssemblyReference.cache
+G:\TPS\DrawTools2014\DocToolkit\obj\Debug\DocToolkit.dll
+G:\TPS\DrawTools2014\DocToolkit\obj\Debug\DocToolkit.pdb

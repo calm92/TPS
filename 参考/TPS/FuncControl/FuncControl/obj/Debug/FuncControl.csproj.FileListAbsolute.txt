@@ -1,0 +1,14 @@
+D:\垃圾\vs\FuncControl\FuncControl\bin\Debug\FuncControl.dll
+D:\垃圾\vs\FuncControl\FuncControl\bin\Debug\FuncControl.pdb
+D:\垃圾\vs\FuncControl\FuncControl\obj\Debug\FuncControl.csprojResolveAssemblyReference.cache
+D:\垃圾\vs\FuncControl\FuncControl\obj\Debug\FuncControl.csproj.GenerateResource.Cache
+D:\垃圾\vs\FuncControl\FuncControl\obj\Debug\FuncControl.dll
+D:\垃圾\vs\FuncControl\FuncControl\obj\Debug\FuncControl.pdb
+D:\垃圾\vs\FuncControl\FuncControl\obj\Debug\FuncControl.FuncControl.resources
+E:\TPS_VS\参考\TPS\FuncControl\FuncControl\bin\Debug\FuncControl.dll
+E:\TPS_VS\参考\TPS\FuncControl\FuncControl\bin\Debug\FuncControl.pdb
+E:\TPS_VS\参考\TPS\FuncControl\FuncControl\obj\Debug\FuncControl.csprojResolveAssemblyReference.cache
+E:\TPS_VS\参考\TPS\FuncControl\FuncControl\obj\Debug\FuncControl.FuncControl.resources
+E:\TPS_VS\参考\TPS\FuncControl\FuncControl\obj\Debug\FuncControl.csproj.GenerateResource.Cache
+E:\TPS_VS\参考\TPS\FuncControl\FuncControl\obj\Debug\FuncControl.dll
+E:\TPS_VS\参考\TPS\FuncControl\FuncControl\obj\Debug\FuncControl.pdb

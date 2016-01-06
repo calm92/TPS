@@ -1,0 +1,239 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{28595034-2EB6-44AF-B131-C3DD39945E33}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CustomControls</RootNamespace>
+    <AssemblyName>CustomControls</AssemblyName>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SignAssembly>true</SignAssembly>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BarCode\BarcodeFactory.cs" />
+    <Compile Include="BarCode\Barcodes\Code39.cs" />
+    <Compile Include="BarCode\Barcodes\Code93.cs" />
+    <Compile Include="BarCode\DrawBarcodes.cs" />
+    <Compile Include="BarCode\frmNotice.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BarCode\frmNotice.Designer.cs">
+      <DependentUpon>frmNotice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BarCode\IBarcodes.cs" />
+    <Compile Include="CommonSettings.cs" />
+    <Compile Include="Control\DocumentSpace.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Control\DocumentSpace.Designer.cs">
+      <DependentUpon>DocumentSpace.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Control\DrawToolBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Control\frmAbout.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Control\frmAbout.Designer.cs">
+      <DependentUpon>frmAbout.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Control\frmSetting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Control\frmSetting.Designer.cs">
+      <DependentUpon>frmSetting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Control\ItemList.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Control\Ruler.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Control\Ruler.Designer.cs">
+      <DependentUpon>Ruler.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Designer.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DrawItem\DrawEllipse.cs" />
+    <Compile Include="DrawItem\DrawImage.cs" />
+    <Compile Include="DrawItem\DrawItemBase.cs" />
+    <Compile Include="DrawItem\DrawItemList.cs" />
+    <Compile Include="DrawItem\DrawLine.cs" />
+    <Compile Include="DrawItem\DrawPolygon.cs" />
+    <Compile Include="DrawItem\DrawRectangle.cs" />
+    <Compile Include="DrawItem\DrawText.cs" />
+    <Compile Include="enum.cs" />
+    <Compile Include="IO\InOutPut.cs" />
+    <Compile Include="IO\ObjectSerializer.cs" />
+    <Compile Include="IO\PrintConfig.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="ToolBox\ToolAttribute.cs" />
+    <Compile Include="ToolBox\ToolBarcode.cs" />
+    <Compile Include="ToolBox\ToolBase.cs" />
+    <Compile Include="ToolBox\ToolEllipse.cs" />
+    <Compile Include="ToolBox\ToolImage.cs" />
+    <Compile Include="ToolBox\ToolLine.cs" />
+    <Compile Include="ToolBox\ToolPloygon.cs" />
+    <Compile Include="ToolBox\ToolRectangle.cs" />
+    <Compile Include="ToolBox\ToolSelector.cs" />
+    <Compile Include="ToolBox\ToolText.cs" />
+    <Compile Include="VistaRenderer\GraphicsTools.cs" />
+    <Compile Include="VistaRenderer\VistaRenderer.cs" />
+    <Compile Include="VistaRenderer\WindowsVistaColorTable.cs" />
+    <Service Include="{94E38DFF-614B-4cbd-B67C-F211BB35CE8B}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Control\DocumentSpace.resx">
+      <DependentUpon>DocumentSpace.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Designer.resx">
+      <DependentUpon>Designer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Control\frmAbout.resx">
+      <DependentUpon>frmAbout.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Control\frmSetting.resx">
+      <DependentUpon>frmSetting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\about.png" />
+    <EmbeddedResource Include="Resources\add.png" />
+    <EmbeddedResource Include="Resources\arrow_left_green.png" />
+    <EmbeddedResource Include="Resources\arrow_right_green.png" />
+    <EmbeddedResource Include="Resources\barcode.png" />
+    <EmbeddedResource Include="Resources\closewindow16x16.png" />
+    <EmbeddedResource Include="Resources\color.png" />
+    <EmbeddedResource Include="Resources\copy16.png" />
+    <EmbeddedResource Include="Resources\cursor.png" />
+    <EmbeddedResource Include="Resources\cut.png" />
+    <EmbeddedResource Include="Resources\delete.png" />
+    <EmbeddedResource Include="Resources\document_zoom_out.png" />
+    <EmbeddedResource Include="Resources\edit.png" />
+    <EmbeddedResource Include="Resources\Ellipse.cur" />
+    <EmbeddedResource Include="Resources\ellipse.png" />
+    <EmbeddedResource Include="Resources\exit.png" />
+    <EmbeddedResource Include="Resources\folder.png" />
+    <EmbeddedResource Include="Resources\folder1.png" />
+    <EmbeddedResource Include="Resources\image.gif" />
+    <EmbeddedResource Include="Resources\layer_to_back.png" />
+    <EmbeddedResource Include="Resources\layer_to_front.png" />
+    <EmbeddedResource Include="Resources\Line.cur" />
+    <EmbeddedResource Include="Resources\line.png" />
+    <EmbeddedResource Include="Resources\new16.png" />
+    <EmbeddedResource Include="Resources\open16.png" />
+    <EmbeddedResource Include="Resources\paste.png" />
+    <EmbeddedResource Include="Resources\Pencil.cur" />
+    <EmbeddedResource Include="Resources\pencil.png" />
+    <EmbeddedResource Include="Resources\pointer.bmp" />
+    <EmbeddedResource Include="Resources\PolyHandle.cur" />
+    <EmbeddedResource Include="Resources\print16.png" />
+    <EmbeddedResource Include="Resources\print_setup16.png" />
+    <EmbeddedResource Include="Resources\prop16.png" />
+    <EmbeddedResource Include="Resources\Rectangle.cur" />
+    <EmbeddedResource Include="Resources\rectangle.png" />
+    <EmbeddedResource Include="Resources\redo.png" />
+    <EmbeddedResource Include="Resources\save16.png" />
+    <EmbeddedResource Include="Resources\save_as.png" />
+    <EmbeddedResource Include="Resources\text.png" />
+    <EmbeddedResource Include="Resources\undo.png" />
+    <EmbeddedResource Include="Resources\zoom_in.png" />
+    <EmbeddedResource Include="Resources\zoom_out.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\new.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Save.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\print.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Setting.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PushMsgInfo.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\info.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\view.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delete.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="BarCode\frmNotice.resx">
+      <DependentUpon>frmNotice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\barcodeNew.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\polygon.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\showgrid.gif" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

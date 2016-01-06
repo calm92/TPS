@@ -1,0 +1,12 @@
+D:\InvoicePrint\Controls\bin\Debug\Controls.dll
+D:\InvoicePrint\Controls\bin\Debug\Controls.pdb
+D:\InvoicePrint\Controls\obj\Debug\ResolveAssemblyReference.cache
+D:\InvoicePrint\Controls\obj\Debug\Controls.csproj.GenerateResource.Cache
+D:\InvoicePrint\Controls\obj\Debug\Controls.dll
+D:\InvoicePrint\Controls\obj\Debug\Controls.pdb
+D:\InvoicePrint\Controls\obj\Debug\Controls.Control.DocumentSpace.resources
+D:\InvoicePrint\Controls\obj\Debug\Controls.Properties.Resources.resources
+D:\InvoicePrint\Controls\obj\Debug\Controls.Designer.resources
+D:\InvoicePrint\Controls\obj\Debug\Controls.Control.frmAbout.resources
+D:\InvoicePrint\Controls\obj\Debug\Controls.Control.frmSetting.resources
+D:\InvoicePrint\Controls\obj\Debug\Controls.BarCode.frmNotice.resources
