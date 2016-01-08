@@ -10,11 +10,32 @@ using System.Windows.Forms;
 
 namespace FuncControl
 {
+    #region 注释
+    /* 总体注释
+     * BaseSetControl： 是一个仪器集合控件，作用为双击此控件，就会得到相应的视图。
+     * 如DMMSet，双击此控件，在左上角的tabcontrol中会出现DMM的tab，在这个tab里面有
+     * 关于DMM的各种仪器操作函数。
+     * 
+     */
+
+    /*
+     * 
+     * 
+     * 
+     */
+    #endregion
     public partial class BaseSetControl: UserControl
     {
         public BaseSetControl()
         {
             InitializeComponent();
+        }
+
+        public  BaseSetControl(FlowLayoutPanel flow, string TabName)
+        {
+            InitializeComponent();
+            setFlow = flow;
+            tabName = TabName;
         }
         #region 属性
         public string LabelText{
@@ -26,7 +47,15 @@ namespace FuncControl
             get { return label2.Text; }
         }
         #endregion
-      
+
+        #region 参数
+        static public TabPage tabPage;
+        static public TabControl tabControl;
+
+        private FlowLayoutPanel setFlow;
+        private string tabName;
+    #endregion
+
         private void AdjustLabelLocation() {
             int buttonX = label2.Location.X;
             int buttonX_Mid = buttonX + label2.Width / 2;
@@ -37,16 +66,10 @@ namespace FuncControl
       
 
         #region doubleClick
-        /******************************
-        //自定义事件
-        ******************************/
-        public delegate void UserDoubleClick(object sender, EventArgs e);
-
-        public event UserDoubleClick UserControlDoubleClicked;
 
         private void label2_DoubleClick(object sender, EventArgs e)
         {
-            UserControlDoubleClicked(sender,e);
+            BaseSetControl_DoubleClick(sender, e);
         }
 
         private void label1_DoubleClick(object sender, EventArgs e)
@@ -73,14 +96,19 @@ namespace FuncControl
             BaseControl_MouseEnter(sender, e);
         }
 
-        private void label2_MouseLeave(object sender, EventArgs e)
-        {
-            BaseControl_MouseLeave(sender, e);
-        }
-
+      
         private void label1_MouseEnter(object sender, EventArgs e)
         {
             BaseControl_MouseEnter(sender, e);
+        }
+
+        private void BaseSetControl_DoubleClick(object sender, EventArgs e)
+        {
+            tabControl.SelectedTab = tabPage;
+            tabControl.TabPages.Add(tabPage);
+            tabPage.Text = tabName;
+            setFlow.BringToFront();
+            this.BackColor = Color.Transparent;
         }
 
     }

@@ -24,14 +24,30 @@ namespace MainForm
         ********************************/
         private void ControlParentInit()
         {
-            //Set parent
-            SetDMM.Parent = InstruementFlow;
-            SetScope.Parent = InstruementFlow;
+           
             MethodFuncControl.Parent = MethodFlow;
+            
             //Flow parent
             ScopeFlow.Parent = HidePage;
             DMMFlow.Parent = HidePage;
+           
+
+            //baseSetControl Init
+            FuncControl.BaseSetControl.tabPage = HidePage;
+            FuncControl.BaseSetControl.tabControl = ControlTab;
+            //DMMSET Init
+            SetDMM = new FuncControl.BaseSetControl(DMMFlow, "DMM");
+            SetDMM.Parent = InstruementFlow;
+            SetDMM.LabelText = "SetDMM";
+            SetDMM.ButtonText = "DMM";
             
+            //ScopeSet Init
+            SetScope = new FuncControl.BaseSetControl(ScopeFlow, "Scope");
+            SetScope.Parent = InstruementFlow;
+            SetScope.LabelText = "SetScope";
+            SetScope.ButtonText = "SCOPE";
+
+            //
         }
 
         #region 变量
@@ -41,6 +57,9 @@ namespace MainForm
         private int GraphNum = 0;
         private BaseMeterControl startControl;
         private Point startLocation  = new Point(80,80);
+        private FuncControl.BaseSetControl SetDMM;
+        private FuncControl.BaseSetControl SetScope;
+
         #endregion
 
 
@@ -106,22 +125,7 @@ namespace MainForm
         }
         #endregion
 
-        #region InstrumentPanel  //Set控件Parent设置和仪器仪表页面Set控件双击事件
-        private void SetDMM_UserControlDoubleClicked_1(object sender, EventArgs e)
-        {
-            ControlTab.SelectedTab = HidePage;
-            ControlTab.TabPages.Add(HidePage);
-            HidePage.Text = "DMM";
-            DMMFlow.BringToFront();
-        }
-        private void SetScope_UserControlDoubleClicked(object sender, EventArgs e)
-        {
-            ControlTab.SelectedTab = HidePage;
-            ControlTab.TabPages.Add(HidePage);
-            HidePage.Text = "Scope";
-            ScopeFlow.BringToFront();
-        }
-        #endregion
+    
 
         #region methodFlow
         
@@ -179,6 +183,8 @@ namespace MainForm
         }
 
         #endregion
+
+      
 
 
 

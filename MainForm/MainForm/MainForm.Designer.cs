@@ -37,6 +37,7 @@
             this.InstruementFlow = new System.Windows.Forms.FlowLayoutPanel();
             this.MethodPage = new System.Windows.Forms.TabPage();
             this.MethodFlow = new System.Windows.Forms.FlowLayoutPanel();
+            this.MethodFuncControl = new TpsControl.FlowFuncControl();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.HidePage = new System.Windows.Forms.TabPage();
             this.DMMFlow = new System.Windows.Forms.FlowLayoutPanel();
@@ -50,9 +51,6 @@
             this.MainPage = new System.Windows.Forms.TabPage();
             this.splitRightUp = new System.Windows.Forms.SplitContainer();
             this.varPanel = new System.Windows.Forms.Panel();
-            this.SetDMM = new FuncControl.BaseSetControl();
-            this.SetScope = new FuncControl.BaseSetControl();
-            this.MethodFuncControl = new TpsControl.FlowFuncControl();
             ((System.ComponentModel.ISupportInitialize)(this.splitLeft)).BeginInit();
             this.splitLeft.Panel1.SuspendLayout();
             this.splitLeft.Panel2.SuspendLayout();
@@ -63,7 +61,6 @@
             this.splitLeftUp.SuspendLayout();
             this.ControlTab.SuspendLayout();
             this.InstrumentPage.SuspendLayout();
-            this.InstruementFlow.SuspendLayout();
             this.MethodPage.SuspendLayout();
             this.MethodFlow.SuspendLayout();
             this.HidePage.SuspendLayout();
@@ -154,8 +151,6 @@
             // 
             // InstruementFlow
             // 
-            this.InstruementFlow.Controls.Add(this.SetDMM);
-            this.InstruementFlow.Controls.Add(this.SetScope);
             this.InstruementFlow.Dock = System.Windows.Forms.DockStyle.Fill;
             this.InstruementFlow.Location = new System.Drawing.Point(3, 3);
             this.InstruementFlow.Name = "InstruementFlow";
@@ -181,8 +176,21 @@
             this.MethodFlow.Dock = System.Windows.Forms.DockStyle.Fill;
             this.MethodFlow.Location = new System.Drawing.Point(3, 3);
             this.MethodFlow.Name = "MethodFlow";
-            this.MethodFlow.Size = new System.Drawing.Size(102, 160);
+            this.MethodFlow.Size = new System.Drawing.Size(102, 136);
             this.MethodFlow.TabIndex = 0;
+            // 
+            // MethodFuncControl
+            // 
+            this.MethodFuncControl.BackColor = System.Drawing.Color.Transparent;
+            this.MethodFuncControl.ButtonText = "Meth";
+            this.MethodFuncControl.ControlParent = this.MethodFlow;
+            this.MethodFuncControl.LabelText = "Add";
+            this.MethodFuncControl.Location = new System.Drawing.Point(3, 3);
+            this.MethodFuncControl.Name = "MethodFuncControl";
+            this.MethodFuncControl.Size = new System.Drawing.Size(66, 74);
+            this.MethodFuncControl.TabIndex = 1;
+            this.MethodFuncControl.FlowControlMouseMove_Out += new TpsControl.FlowFuncControl.MouseMove_Out(this.flowFuncControl1_FlowControlMouseMove_Out);
+            this.MethodFuncControl.FlowControlMouseUp_Out += new TpsControl.FlowFuncControl.MouseUp_Out(this.flowFuncControl1_FlowControlMouseUp_Out_1);
             // 
             // flowLayoutPanel1
             // 
@@ -319,41 +327,6 @@
             this.varPanel.TabIndex = 0;
             this.varPanel.SizeChanged += new System.EventHandler(this.varPanel_SizeChanged);
             // 
-            // SetDMM
-            // 
-            this.SetDMM.BackColor = System.Drawing.Color.Transparent;
-            this.SetDMM.ButtonText = "DMM";
-            this.SetDMM.LabelText = "DMM";
-            this.SetDMM.Location = new System.Drawing.Point(3, 3);
-            this.SetDMM.Name = "SetDMM";
-            this.SetDMM.Size = new System.Drawing.Size(68, 73);
-            this.SetDMM.TabIndex = 0;
-            this.SetDMM.UserControlDoubleClicked += new FuncControl.BaseSetControl.UserDoubleClick(this.SetDMM_UserControlDoubleClicked_1);
-            // 
-            // SetScope
-            // 
-            this.SetScope.BackColor = System.Drawing.Color.Transparent;
-            this.SetScope.ButtonText = "Scope";
-            this.SetScope.LabelText = "Scope";
-            this.SetScope.Location = new System.Drawing.Point(3, 82);
-            this.SetScope.Name = "SetScope";
-            this.SetScope.Size = new System.Drawing.Size(68, 73);
-            this.SetScope.TabIndex = 1;
-            this.SetScope.UserControlDoubleClicked += new FuncControl.BaseSetControl.UserDoubleClick(this.SetScope_UserControlDoubleClicked);
-            // 
-            // MethodFuncControl
-            // 
-            this.MethodFuncControl.BackColor = System.Drawing.Color.Transparent;
-            this.MethodFuncControl.ButtonText = "Meth";
-            this.MethodFuncControl.ControlParent = this.MethodFlow;
-            this.MethodFuncControl.LabelText = "Add";
-            this.MethodFuncControl.Location = new System.Drawing.Point(3, 3);
-            this.MethodFuncControl.Name = "MethodFuncControl";
-            this.MethodFuncControl.Size = new System.Drawing.Size(66, 74);
-            this.MethodFuncControl.TabIndex = 1;
-            this.MethodFuncControl.FlowControlMouseMove_Out += new TpsControl.FlowFuncControl.MouseMove_Out(this.flowFuncControl1_FlowControlMouseMove_Out);
-            this.MethodFuncControl.FlowControlMouseUp_Out += new TpsControl.FlowFuncControl.MouseUp_Out(this.flowFuncControl1_FlowControlMouseUp_Out_1);
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -374,7 +347,6 @@
             this.splitLeftUp.ResumeLayout(false);
             this.ControlTab.ResumeLayout(false);
             this.InstrumentPage.ResumeLayout(false);
-            this.InstruementFlow.ResumeLayout(false);
             this.MethodPage.ResumeLayout(false);
             this.MethodFlow.ResumeLayout(false);
             this.HidePage.ResumeLayout(false);
@@ -411,8 +383,6 @@
         private System.Windows.Forms.ContextMenuStrip fileList;
         private System.Windows.Forms.ToolStripMenuItem 添加文件ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 删除文件ToolStripMenuItem;
-        private FuncControl.BaseSetControl SetDMM;
-        private FuncControl.BaseSetControl SetScope;
         private System.Windows.Forms.FlowLayoutPanel ScopeFlow;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private TpsControl.FlowFuncControl MethodFuncControl;

@@ -1,5 +1,6 @@
 ﻿namespace FuncControl
 {
+    
     partial class BaseSetControl
     {
         /// <summary>
@@ -69,6 +70,7 @@
             this.Controls.Add(this.label1);
             this.Name = "BaseSetControl";
             this.Size = new System.Drawing.Size(68, 73);
+            this.DoubleClick += new System.EventHandler(this.BaseSetControl_DoubleClick);
             this.MouseEnter += new System.EventHandler(this.BaseControl_MouseEnter);
             this.MouseLeave += new System.EventHandler(this.BaseControl_MouseLeave);
             this.ResumeLayout(false);
