@@ -77,12 +77,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="TestVarPanel.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="TestVarPanel.Designer.cs">
-      <DependentUpon>TestVarPanel.cs</DependentUpon>
-    </Compile>
     <Compile Include="VarInfo.cs" />
     <Compile Include="VarPanel.cs">
       <SubType>UserControl</SubType>
@@ -111,9 +105,6 @@
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="TestVarPanel.resx">
-      <DependentUpon>TestVarPanel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="VarPanel.resx">
       <DependentUpon>VarPanel.cs</DependentUpon>

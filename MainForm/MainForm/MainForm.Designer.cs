@@ -37,8 +37,7 @@
             this.InstruementFlow = new System.Windows.Forms.FlowLayoutPanel();
             this.MethodPage = new System.Windows.Forms.TabPage();
             this.MethodFlow = new System.Windows.Forms.FlowLayoutPanel();
-            this.MethodFuncControl = new TpsControl.FlowFuncControl();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.flow_Add1 = new MethodFlowControl.Flow_Add();
             this.HidePage = new System.Windows.Forms.TabPage();
             this.DMMFlow = new System.Windows.Forms.FlowLayoutPanel();
             this.ScopeFlow = new System.Windows.Forms.FlowLayoutPanel();
@@ -47,7 +46,7 @@
             this.添加文件ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.删除文件ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.splitRight = new System.Windows.Forms.SplitContainer();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.formControl = new System.Windows.Forms.TabControl();
             this.MainPage = new System.Windows.Forms.TabPage();
             this.splitRightUp = new System.Windows.Forms.SplitContainer();
             this.varPanel = new System.Windows.Forms.Panel();
@@ -70,7 +69,7 @@
             this.splitRight.Panel1.SuspendLayout();
             this.splitRight.Panel2.SuspendLayout();
             this.splitRight.SuspendLayout();
-            this.tabControl1.SuspendLayout();
+            this.formControl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitRightUp)).BeginInit();
             this.splitRightUp.Panel1.SuspendLayout();
             this.splitRightUp.SuspendLayout();
@@ -171,35 +170,23 @@
             // MethodFlow
             // 
             this.MethodFlow.AutoScroll = true;
-            this.MethodFlow.Controls.Add(this.MethodFuncControl);
-            this.MethodFlow.Controls.Add(this.flowLayoutPanel1);
+            this.MethodFlow.Controls.Add(this.flow_Add1);
             this.MethodFlow.Dock = System.Windows.Forms.DockStyle.Fill;
             this.MethodFlow.Location = new System.Drawing.Point(3, 3);
             this.MethodFlow.Name = "MethodFlow";
             this.MethodFlow.Size = new System.Drawing.Size(102, 136);
             this.MethodFlow.TabIndex = 0;
             // 
-            // MethodFuncControl
+            // flow_Add1
             // 
-            this.MethodFuncControl.BackColor = System.Drawing.Color.Transparent;
-            this.MethodFuncControl.ButtonText = "Meth";
-            this.MethodFuncControl.ControlParent = this.MethodFlow;
-            this.MethodFuncControl.LabelText = "Add";
-            this.MethodFuncControl.Location = new System.Drawing.Point(3, 3);
-            this.MethodFuncControl.Name = "MethodFuncControl";
-            this.MethodFuncControl.Size = new System.Drawing.Size(66, 74);
-            this.MethodFuncControl.TabIndex = 1;
-            this.MethodFuncControl.FlowControlMouseMove_Out += new TpsControl.FlowFuncControl.MouseMove_Out(this.flowFuncControl1_FlowControlMouseMove_Out);
-            this.MethodFuncControl.FlowControlMouseUp_Out += new TpsControl.FlowFuncControl.MouseUp_Out(this.flowFuncControl1_FlowControlMouseUp_Out_1);
-            // 
-            // flowLayoutPanel1
-            // 
-            this.flowLayoutPanel1.AutoScroll = true;
-            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 83);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(99, 0);
-            this.flowLayoutPanel1.TabIndex = 0;
+            this.flow_Add1.BackColor = System.Drawing.Color.Transparent;
+            this.flow_Add1.ButtonText = "Meth";
+            this.flow_Add1.ControlParent = this.MethodFlow;
+            this.flow_Add1.LabelText = "ADD";
+            this.flow_Add1.Location = new System.Drawing.Point(3, 3);
+            this.flow_Add1.Name = "flow_Add1";
+            this.flow_Add1.Size = new System.Drawing.Size(69, 75);
+            this.flow_Add1.TabIndex = 1;
             // 
             // HidePage
             // 
@@ -271,7 +258,7 @@
             // 
             // splitRight.Panel1
             // 
-            this.splitRight.Panel1.Controls.Add(this.tabControl1);
+            this.splitRight.Panel1.Controls.Add(this.formControl);
             // 
             // splitRight.Panel2
             // 
@@ -280,15 +267,15 @@
             this.splitRight.SplitterDistance = 460;
             this.splitRight.TabIndex = 0;
             // 
-            // tabControl1
+            // formControl
             // 
-            this.tabControl1.Controls.Add(this.MainPage);
-            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControl1.Location = new System.Drawing.Point(0, 0);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(460, 425);
-            this.tabControl1.TabIndex = 0;
+            this.formControl.Controls.Add(this.MainPage);
+            this.formControl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.formControl.Location = new System.Drawing.Point(0, 0);
+            this.formControl.Name = "formControl";
+            this.formControl.SelectedIndex = 0;
+            this.formControl.Size = new System.Drawing.Size(460, 425);
+            this.formControl.TabIndex = 0;
             // 
             // MainPage
             // 
@@ -356,7 +343,7 @@
             this.splitRight.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitRight)).EndInit();
             this.splitRight.ResumeLayout(false);
-            this.tabControl1.ResumeLayout(false);
+            this.formControl.ResumeLayout(false);
             this.splitRightUp.Panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitRightUp)).EndInit();
             this.splitRightUp.ResumeLayout(false);
@@ -378,16 +365,15 @@
         private System.Windows.Forms.TabPage HidePage;
         private System.Windows.Forms.FlowLayoutPanel DMMFlow;
         private System.Windows.Forms.ListBox listBox1;
-        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabControl formControl;
         private System.Windows.Forms.TabPage MainPage;
         private System.Windows.Forms.ContextMenuStrip fileList;
         private System.Windows.Forms.ToolStripMenuItem 添加文件ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 删除文件ToolStripMenuItem;
         private System.Windows.Forms.FlowLayoutPanel ScopeFlow;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
-        private TpsControl.FlowFuncControl MethodFuncControl;
         private System.Windows.Forms.SplitContainer splitRightUp;
         private System.Windows.Forms.Panel varPanel;
+        private MethodFlowControl.Flow_Add flow_Add1;
 
 
 

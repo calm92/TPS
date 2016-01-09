@@ -12,8 +12,18 @@ namespace TpsControl
 {
     public partial class BaseMeterControl : UserControl
     {
-        private List<VarInfo> varInfoList= new List<VarInfo>();
-        private VarPanel funcVarPanel;
+        private List<string> funcVars;
+        protected List<VarInfo> varInfoList= new List<VarInfo>();
+        //获得函数参数：
+        //funcVarPanel.GetVar();
+        protected VarPanel funcVarPanel;
+        //二维，第一维表示图，第二位表示位
+        static public List<List<BaseMeterControl>> meterControl = new List<List<BaseMeterControl>>();
+        //变量Panel父容器，是mainfom里面的varPanel
+        static public Panel varPanelParent;
+       
+        public int GraphID; //图号
+        public int TabID;   //位号
 
         public BaseMeterControl()
         {
@@ -21,16 +31,23 @@ namespace TpsControl
         }
 
         
-        public BaseMeterControl(int ID, Panel varPanelParent)
+        public BaseMeterControl(int graphID,int tabID )
         {
             InitializeComponent();
-            GraphID = ID;
-            this.varPanelParent = varPanelParent;
-            if (GraphID == 0)
-                InitVarPanel();
+            this.GraphID = graphID;
+            this.TabID = tabID;
+
+            InitVarPanel();
+            meterControl[GraphID].Add(this);
+         
         }
 
         #region 对外方法
+        static public void AddForm()
+        {
+            List<BaseMeterControl> empty = new List<BaseMeterControl>();
+            meterControl.Add(empty);
+        }
         public void EnablePrintSqure()
         {
             squre.MouseHover += new EventHandler(squre_MouseHover);
@@ -51,6 +68,17 @@ namespace TpsControl
         {
             this.funcVarPanel.AdjustSize();
         }
+
+        //显示右上角varPanel的参数列表
+        public void ShowVar()
+        {
+            varPanelParent.Controls.Clear();
+
+            varPanelParent.Controls.Add(funcVarPanel);
+        }
+
+        //获得函数参数
+       
         #endregion
 
         #region 参数
@@ -61,10 +89,7 @@ namespace TpsControl
         private const int redSqureThickness = 2;   //红框粗细
         #endregion
         
-        #region 对外参数
-        public int GraphID;
-        public Panel varPanelParent;
-        #endregion
+        
 
         #region 不可设置参数
         #region 新控件参数
@@ -125,6 +150,13 @@ namespace TpsControl
             }
             get {
                 return this.squre.Parent;
+            }
+        }
+
+        public List<string> functionVars {
+            get {
+                funcVars = funcVarPanel.GetVar();
+                return funcVars;
             }
         }
         
@@ -220,11 +252,7 @@ namespace TpsControl
             }
             squre.BorderStyle = BorderStyle.FixedSingle;
 
-            varPanelParent.Controls.Clear();
-
-            varPanelParent.Controls.Add(funcVarPanel);
-
-            //funcVarPanel.Visible = true;
+            ShowVar();
 
             return;
         }
@@ -388,14 +416,14 @@ namespace TpsControl
         #region varPanel
         private void InitVarPanel() {
             
-            DisablePrintSqure();
-            if (GraphID == 0)
+            DisablePrintSqure();//关闭红框闪烁事件
+            if (TabID == 0)
                 varInfoList = null;
             else InitVarInfo();
 
             setFuncName();
 
-            funcVarPanel = new VarPanel(varInfoList, funcName,GraphID);
+            funcVarPanel = new VarPanel(varInfoList, funcName,TabID);
             funcVarPanel.Dock = DockStyle.Fill;
             funcVarPanel.Parent = varPanelParent;
         }
@@ -405,26 +433,14 @@ namespace TpsControl
             return;
         }
         protected virtual void InitVarInfo() {
-            VarInfo varInfo1 = new VarInfo(true, "add1", "int");
-            VarInfo varInfo2 = new VarInfo(true, "add2", "int");
-            VarInfo varInfo3 = new VarInfo(false, "result", "int");
-            varInfoList.Add(varInfo1);
-            varInfoList.Add(varInfo2);
-            varInfoList.Add(varInfo3);
-
-            
             return;
         }
 
         #endregion
-        private void BaseMeterControl_Load(object sender, EventArgs e)
-        {
-            
-            InitVarPanel();
-        }
 
-       
 
-        
+
+
+
     }
 }

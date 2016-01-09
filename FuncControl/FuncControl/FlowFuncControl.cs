@@ -10,10 +10,23 @@ namespace TpsControl
 {
     public partial class FlowFuncControl : FuncControl.BaseSetControl
     {
+        //Form 为控件主界面。为了以后可以扩展自定义函数功能，把其作为list类型
+        //新添加一个自定义函数(自定义form)，需要在form里面ADD添加的页面。
+        //formcontrol是form的容器，            
+        //FormControl.SelectedTab为当前From
+        //添加的metercontrol应该添加到当前form
+
+        static public List<TabPage> Form = new List<TabPage>();
+        static public TabControl FormControl;
+
+        //controlCount 联合tabnum来实现增加控件。
+        private static int tabNum = -1;
+        private BaseMeterControl meterControl;
         public FlowFuncControl()
         {
             InitializeComponent();
         }
+
 
         #region 属性
 
@@ -28,16 +41,17 @@ namespace TpsControl
 
         #endregion
 
-        #region 委托事件
+        
+        static public void AddForm(TabPage newForm)
+        {
+            Form.Add(newForm);
+        }
 
-        public delegate void MouseMove_Out(object sender, EventArgs e);
-        public event MouseMove_Out FlowControlMouseMove_Out;
-
-        public delegate void MouseUp_Out(object sender, EventArgs e);
-        public event MouseUp_Out FlowControlMouseUp_Out;
-
-        #endregion
- 
+        protected virtual void buildMeterControl(out BaseMeterControl meterControl) {
+            //新建对应的meterControl，并且把新建控件加入meterControl中。
+            meterControl = new BaseMeterControl();
+            return ;
+        }
 
         private void FlowFuncControl_MouseMove(object sender, MouseEventArgs e)
         {
@@ -46,8 +60,26 @@ namespace TpsControl
              else
              {
                  this.Cursor = Cursors.Default;
-                 FlowControlMouseMove_Out(sender, e);
+
+                 if (tabNum < 0)
+                 {
+               
+                     buildMeterControl( out meterControl);
+                     tabNum = 0;
+
+                     meterControl.Parent = FormControl.SelectedTab;
+                     FormControl.SelectedTab.Controls.Add(meterControl);
+                 }
+                 Point mousePoint = new Point(MousePosition.X, MousePosition.Y);
+                 mousePoint = FormControl.SelectedTab.Parent.PointToClient(mousePoint);
+                 int x = mousePoint.X - meterControl.Width / 2;
+                 int y = mousePoint.Y - meterControl.Height / 2;
+                 meterControl.Location = new Point(x, y);
+
+                 return;
+
              }
+
         }
 
         private void FlowFuncControl_MouseUp(object sender, MouseEventArgs e)
@@ -55,11 +87,27 @@ namespace TpsControl
             if (e.Location.X < (this.Parent.Location.X + this.Parent.Width))
                 this.Cursor = Cursors.Default;
             else
-                FlowControlMouseUp_Out(sender, e);
-            
-            this.MouseMove -= new MouseEventHandler(FlowFuncControl_MouseMove);          
+            {
+                //Out range
+                Point mousePoint = new Point(MousePosition.X, MousePosition.Y);
+                mousePoint = FormControl.SelectedTab.PointToClient(mousePoint);
+
+                meterControl.Location = new Point
+                    (mousePoint.X - meterControl.Width / 2,
+                        mousePoint.Y - meterControl.Height / 2);
+
+                meterControl.Visible = true;
+                meterControl.controlLocation
+                    = new Point(meterControl.Location.X, meterControl.Location.Y);
+            }
 
 
+             this.MouseMove -= new MouseEventHandler(FlowFuncControl_MouseMove);
+             tabNum = -1;
+             meterControl.controlParent = FormControl.SelectedTab;
+             meterControl.Visible = false;
+             meterControl.ShowVar();
+            // BaseMeterControl.meterControl[FormControl.SelectedIndex].Add(meterControl);
         }
 
         private void FlowFuncControl_MouseDown(object sender, MouseEventArgs e)

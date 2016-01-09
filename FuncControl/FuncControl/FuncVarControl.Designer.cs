@@ -136,6 +136,6 @@
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.TextBox varType;
         private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox varValue;
+        public System.Windows.Forms.TextBox varValue;
     }
 }

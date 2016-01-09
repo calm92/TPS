@@ -22,3 +22,7 @@ E:\TPS\MainForm\MainForm\obj\Debug\MainForm.csprojResolveAssemblyReference.cache
 E:\TPS\MainForm\MainForm\obj\Debug\MainForm.MainForm.resources
 E:\TPS\MainForm\MainForm\obj\Debug\MainForm.Properties.Resources.resources
 E:\TPS\MainForm\MainForm\obj\Debug\MainForm.csproj.GenerateResource.Cache
+E:\TPS\MainForm\MainForm\bin\Debug\MethodFlowControl.dll
+E:\TPS\MainForm\MainForm\bin\Debug\MethodMeter.dll
+E:\TPS\MainForm\MainForm\bin\Debug\MethodFlowControl.pdb
+E:\TPS\MainForm\MainForm\bin\Debug\MethodMeter.pdb

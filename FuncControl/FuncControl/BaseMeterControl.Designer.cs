@@ -71,7 +71,6 @@
             this.Controls.Add(this.label1);
             this.Name = "BaseMeterControl";
             this.Size = new System.Drawing.Size(58, 55);
-            this.Load += new System.EventHandler(this.BaseMeterControl_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

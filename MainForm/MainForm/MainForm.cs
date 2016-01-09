@@ -20,12 +20,11 @@ namespace MainForm
         }
 
         /**********************
-         * 所有控件parent设置
+         * 所有setControl设置
         ********************************/
-        private void ControlParentInit()
+        private void SetControlInit()
         {
            
-            MethodFuncControl.Parent = MethodFlow;
             
             //Flow parent
             ScopeFlow.Parent = HidePage;
@@ -53,34 +52,47 @@ namespace MainForm
         #region 变量
         //debug
         private List<BaseMeterControl> FuncControlList = new List<BaseMeterControl>();
-        private int listCount = 0;
-        private int GraphNum = 0;
-        private BaseMeterControl startControl;
+      
+        //private BaseMeterControl startControl;
         private Point startLocation  = new Point(80,80);
         private FuncControl.BaseSetControl SetDMM;
         private FuncControl.BaseSetControl SetScope;
+        private int formCount = 0;  
 
         #endregion
 
+        #region 添加form
+            private void addForm(TabPage form){
+                 BaseMeterControl.AddForm();
+                 FlowFuncControl.AddForm(form);
 
+                // add start control
+                 BaseMeterControl startControl = new BaseMeterControl(formCount, 0);
+                 //BaseMeterControl.meterControl[formCount].Add(startControl);
+                 startControl.controlParent = formControl.TabPages[formCount];
+                 //formControl.SelectedTab.Controls.Add();
+                 startControl.controlLocation = startLocation;
+                 startControl.labelName = "START";
+                 startControl.squreName = "START";
+                 formCount++;
+            }
+
+        #endregion
         #region MainForm
         private void MainForm_Load(object sender, EventArgs e)
         {
-            //MainForm
+
             this.WindowState = FormWindowState.Maximized;
             AdjustControlTabpage();
-            ControlParentInit();
+            SetControlInit();
             ControlTabInit();
+            addForm(MainPage);
 
-            //start control            
-            startControl = new BaseMeterControl(GraphNum, varPanel);
-            FuncControlList.Add(startControl);
-            GraphNum++;
-            listCount++;
-            startControl.controlParent = MainPage;
-            startControl.controlLocation = startLocation;
-            startControl.labelName = "START";
-            startControl.squreName = "START";
+            //控件static参数设置
+            BaseMeterControl.varPanelParent = varPanel;
+            FlowFuncControl.FormControl = formControl;
+           
+            
         }
         #endregion
 
@@ -127,59 +139,20 @@ namespace MainForm
 
     
 
-        #region methodFlow
         
-        private void flowFuncControl1_FlowControlMouseMove_Out(object sender, EventArgs e)
-        {
-            if (listCount == GraphNum)
-            {
-                BaseMeterControl meterControl = new BaseMeterControl(GraphNum,varPanel);
-                FuncControlList.Add(meterControl);
-               
-                
-                listCount++;
-                //meterControl.controlParent = MainPage;
-                meterControl.Parent = MainPage;
-                MainPage.Controls.Add(meterControl);
-            }
-           
-            Point mousePoint = new Point(MousePosition.X, MousePosition.Y);
-            mousePoint = FuncControlList[GraphNum].Parent.PointToClient(mousePoint);
-            int x = mousePoint.X - FuncControlList[GraphNum].Width / 2;
-            int y = mousePoint.Y - FuncControlList[GraphNum].Height / 2;
-            FuncControlList[GraphNum].Location = new Point(x, y);
-        
-            return;
-
-        }
-
-
-        private void flowFuncControl1_FlowControlMouseUp_Out_1(object sender, EventArgs e)
-        {
-            Point mousePoint = new Point(MousePosition.X, MousePosition.Y);
-            mousePoint = FuncControlList[GraphNum].Parent.PointToClient(mousePoint);
-
-            FuncControlList[GraphNum].Location = new Point
-                    (mousePoint.X - FuncControlList[GraphNum].Width / 2,
-                        mousePoint.Y - FuncControlList[GraphNum].Height / 2);
-            GraphNum++;
-
-            //debug code
-            FuncControlList[GraphNum - 1].Visible = false;
-            FuncControlList[GraphNum - 1].controlParent = MainPage;
-            FuncControlList[GraphNum - 1].controlLocation
-                = new Point(FuncControlList[GraphNum - 1].Location.X, FuncControlList[GraphNum - 1].Location.Y);
-                                                            
-        }
-
-        #endregion
 
         #region varPanel
         private void varPanel_SizeChanged(object sender, EventArgs e)
         {
-            int count = FuncControlList.Count;
-            for (int i = 0; i < count; ++i)
-                FuncControlList[i].AdjustSize();
+            int formCount = FlowFuncControl.Form.Count;
+
+            for (int formIndex = 0; formIndex < formCount; ++formIndex)
+            {
+                int controlCount = BaseMeterControl.meterControl[formIndex].Count;
+                for (int i = 0; i < controlCount; ++i) {
+                    BaseMeterControl.meterControl[formIndex][i].AdjustSize();
+                }
+            }
         }
 
         #endregion

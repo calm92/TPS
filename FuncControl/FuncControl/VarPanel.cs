@@ -12,6 +12,9 @@ namespace TpsControl
 {
     public partial class VarPanel : UserControl
     {
+        //获得参数的接口
+        public List<TextBox> valTextBoxes = new List<TextBox>();
+
         private List<FuncVarControl> inputVarControlList = new List<FuncVarControl>();
         private List<FuncVarControl> outputVarControlList = new List<FuncVarControl>();
         private FuncHead varHead =  null;
@@ -49,7 +52,7 @@ namespace TpsControl
                 VarInfo tempVarInfo = varInfoList[i];
                 FuncVarControl varControl = new FuncVarControl
                                (tempVarInfo.isInput, tempVarInfo.sName,tempVarInfo.sType);
-                
+                valTextBoxes.Add(varControl.varValue);
                 if(tempVarInfo.isInput)
                     inputVarControlList.Add(varControl);
                 else 
@@ -92,8 +95,16 @@ namespace TpsControl
         }
 
 
-        #region public 方法
-        
+        #region 对外方法
+        public List<string> GetVar() {
+            int count = valTextBoxes.Count;
+            List<string> vars = new List<string>();
+            for (int i = 0; i < count; ++i) {
+                string str = valTextBoxes[i].Text;
+                vars.Add(str);
+            }
+            return vars;
+        }
         
         #endregion
 

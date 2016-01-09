@@ -18,11 +18,7 @@ namespace FuncControl
      * 
      */
 
-    /*
-     * 
-     * 
-     * 
-     */
+
     #endregion
     public partial class BaseSetControl: UserControl
     {
@@ -49,6 +45,7 @@ namespace FuncControl
         #endregion
 
         #region 参数
+        //tabPage=hidepage, tabControl是hidepage的父容器。
         static public TabPage tabPage;
         static public TabControl tabControl;
 
@@ -107,7 +104,7 @@ namespace FuncControl
             tabControl.SelectedTab = tabPage;
             tabControl.TabPages.Add(tabPage);
             tabPage.Text = tabName;
-            setFlow.BringToFront();
+             setFlow.BringToFront();
             this.BackColor = Color.Transparent;
         }
 
