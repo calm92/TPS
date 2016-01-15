@@ -21,7 +21,8 @@ namespace TpsControl
         static public List<List<BaseMeterControl>> meterControl = new List<List<BaseMeterControl>>();
         //变量Panel父容器，是mainfom里面的varPanel
         static public Panel varPanelParent;
-       
+
+        static public Color FormBackColor = Color.White;
         public int GraphID; //图号
         public int TabID;   //位号
 
@@ -84,7 +85,7 @@ namespace TpsControl
         #region 参数
 
         #region 控件相关可设置参数
-        const int spancing = 8; //label squre 上下间距
+        const int spancing = 12; //label squre 上下间距
         private const int redSqureLength = 20;  //红框边长
         private const int redSqureThickness = 2;   //红框粗细
         #endregion
@@ -195,7 +196,8 @@ namespace TpsControl
             inputBox.Location = label1.Location;
             inputBox.Text = label1.Text;
             //TextBox1.Parent = funcName;
-            inputBox.BackColor = System.Drawing.SystemColors.Control;
+            //inputBox.BackColor = System.Drawing.SystemColors.Control;
+            inputBox.BackColor = FormBackColor;
             inputBox.Visible = true;
             inputBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             inputBox.Parent.Controls.Add(inputBox);
@@ -317,7 +319,8 @@ namespace TpsControl
             Pen p = new Pen(Color.Red, redSqureThickness);
             if (isDelete == true)
             {
-                p.Color = squre.Parent.BackColor;
+                //p.Color = squre.Parent.BackColor;
+                p.Color = FormBackColor;
             }
             System.Drawing.Graphics g = squre.Parent.CreateGraphics();
             g.DrawRectangle(p, location.X, location.Y, redSqureLength, redSqureLength);
@@ -417,6 +420,7 @@ namespace TpsControl
         private void InitVarPanel() {
             
             DisablePrintSqure();//关闭红框闪烁事件
+            //EnablePrintSqure();
             if (TabID == 0)
                 varInfoList = null;
             else InitVarInfo();

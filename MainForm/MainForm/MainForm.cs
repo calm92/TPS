@@ -68,9 +68,7 @@ namespace MainForm
 
                 // add start control
                  BaseMeterControl startControl = new BaseMeterControl(formCount, 0);
-                 //BaseMeterControl.meterControl[formCount].Add(startControl);
                  startControl.controlParent = formControl.TabPages[formCount];
-                 //formControl.SelectedTab.Controls.Add();
                  startControl.controlLocation = startLocation;
                  startControl.labelName = "START";
                  startControl.squreName = "START";
@@ -78,6 +76,7 @@ namespace MainForm
             }
 
         #endregion
+
         #region MainForm
         private void MainForm_Load(object sender, EventArgs e)
         {

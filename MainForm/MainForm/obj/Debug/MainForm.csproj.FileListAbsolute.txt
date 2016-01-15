@@ -16,7 +16,6 @@ E:\TPS\MainForm\MainForm\obj\Debug\MainForm.pdb
 E:\TPS\MainForm\MainForm\bin\Debug\MainForm.exe
 E:\TPS\MainForm\MainForm\bin\Debug\MainForm.pdb
 E:\TPS\MainForm\MainForm\bin\Debug\TpsControl.dll
-E:\TPS\MainForm\MainForm\bin\Debug\FuncControl.pdb
 E:\TPS\MainForm\MainForm\bin\Debug\TpsControl.pdb
 E:\TPS\MainForm\MainForm\obj\Debug\MainForm.csprojResolveAssemblyReference.cache
 E:\TPS\MainForm\MainForm\obj\Debug\MainForm.MainForm.resources
