@@ -8,7 +8,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using TpsControl;
-
+using MethodFlowControl;
+using System.Collections;
+using System.Drawing.Drawing2D;
 namespace MainForm
 {
     public partial class MainForm : Form
@@ -50,7 +52,23 @@ namespace MainForm
         }
 
         #region 变量
-        //debug
+
+
+        struct line
+        {
+           public Point startPoint;
+           public Point endPoint;
+           public int startTabID;
+           public int endTabID;
+            public line(Point sPoint, Point ePoint, int sID, int eID)
+            {
+                startPoint = sPoint;
+                endPoint = ePoint;
+                startTabID = sID;
+                endTabID = eID;
+            }
+        };
+
         private List<BaseMeterControl> FuncControlList = new List<BaseMeterControl>();
       
         //private BaseMeterControl startControl;
@@ -58,7 +76,16 @@ namespace MainForm
         private FuncControl.BaseSetControl SetDMM;
         private FuncControl.BaseSetControl SetScope;
         private int formCount = 0;  
+        
+        //是否画线
+        private bool isPrintLine = false;
+        private Point startPoint = new Point(-1,-1);
+        private Point endPoint = new Point(-1,-1);
+        private Point lastEndPoint = new Point(-1,-1); //需要删除的线的坐标
+        private List<line> lineList = new List<line>();
 
+        //编译相关参数
+        private int errorNo = 0;
         #endregion
 
         #region 添加form
@@ -77,10 +104,9 @@ namespace MainForm
 
         #endregion
 
-        #region MainForm
+        #region MainFormInit
         private void MainForm_Load(object sender, EventArgs e)
         {
-
             this.WindowState = FormWindowState.Maximized;
             AdjustControlTabpage();
             SetControlInit();
@@ -90,8 +116,17 @@ namespace MainForm
             //控件static参数设置
             BaseMeterControl.varPanelParent = varPanel;
             FlowFuncControl.FormControl = formControl;
-           
+            UserVar.userVarPanel = userVarPanel;
+            BaseMeterControl.mainPage = MainPage;
+           // BaseMeterControl.mainForm = this;
             
+            //ToolTips
+            DrawLineTip.SetToolTip(drawLineButton,"连接线");
+            buildTip.SetToolTip(buildButton,"编译");
+
+            //errorListView
+            //隐藏errorList,折叠panel2
+            splitContainer1.Panel2Collapsed = true;
         }
         #endregion
 
@@ -156,19 +191,296 @@ namespace MainForm
 
         #endregion
 
-      
+        #region uservar
+        
 
+        private void userVarPanel_SizeChanged(object sender, EventArgs e)
+        {
+            userVarPanel.Width = varPanel.Size.Width;
+            userVarPanel.HorizontalScroll.Value = userVarPanel.HorizontalScroll.Maximum;
+            int count = UserVar.userVarList.Count;
+            for (int i = 0; i < count; i++)
+                UserVar.userVarList[i].AdjustWidth();
 
+            if (count == 0)
+                return;
+            /*
+            string str1 = userVarPanel.Size.Width.ToString();
+            string str2 = "the userVar width =";
+            string str3 = userVarList[0].Width.ToString();
+            MessageBox.Show(str1 + str2 + str3);
+            */
+            return;
+        }
 
+        private void 插入变量ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            UserVar insertUserVar = new UserVar();
+            insertUserVar.Parent = userVarPanel;
+            userVarPanel.VerticalScroll.Value = userVarPanel.VerticalScroll.Minimum;
 
+            //确定控件位置
+            int count = UserVar.userVarList.Count;
+            int height = insertUserVar.Height;
+            int location_y = height * count + 2;
+            int location_x = 0;
+            insertUserVar.Location = new Point(location_x, location_y);
+            insertUserVar.AdjustWidth();
 
+            UserVar.userVarList.Add(insertUserVar);
+        }
 
-
-
-        #region fileList右键
 
         #endregion
 
+
+
+
+
+
+
+
+        #region 编译模块
+        //清空var table
+        private void clearVarTable() {
+            BaseMeterControl.doubleTable.Clear();
+            BaseMeterControl.intTable.Clear();
+            BaseMeterControl.stringTable.Clear();
+            return;
+        }
+
+        private void insertVarTable(UserVar userVar,ref Hashtable varTable) {
+            string varName = userVar.varName.Text;
+            if (varName == "")
+                return;
+            string varValue = userVar.varValue.Text;
+            if (userVar.varType.Text == "int") { 
+                int value = 0;
+                bool isTranslate = int.TryParse(varValue, out value);
+                if (isTranslate || varValue == "")
+                    varTable.Add(varName, value);
+                else
+                    //报错*********************************************************************
+                    addErrorItem(errorNo++,"自定义变量类型不符", varName);
+            }
+
+            if (userVar.varType.Text == "double") { 
+                double value = 0;
+                bool isTranslate = double.TryParse(varValue, out value);
+                if (isTranslate || varValue == "")
+                    varTable.Add(varName, value);
+                else
+                    //报错*********************************************************************
+                    addErrorItem(errorNo++, "自定义变量类型不符", varName); ;
+            }
+
+            if (userVar.varType.Text == "string")
+            {
+                if(varValue == "")
+                    varTable.Add(varName, varValue);
+                else if (varValue.EndsWith("\"") && varValue.StartsWith("\""))
+                {
+                    varValue = varValue.Substring(1, varValue.Length - 2);
+                    varTable.Add(varName, varValue);
+                }
+                else
+                    //报错************************************
+                    addErrorItem(errorNo++, "自定义变量类型不符", varName); ;
+                
+            }
+            return;
+
+        }
+        //更新变量树
+        private void rebuildVarTable() {
+            List<UserVar> userVarList = UserVar.userVarList;
+            int count = userVarList.Count();
+            //clear the var table
+            clearVarTable();
+
+            //重新建立var table
+            for (int i = 0; i < count; i++) {
+                UserVar userVar = userVarList[i];
+                string type = userVar.varType.Text;
+                if (type == "")
+                    continue;
+                if (type == "int")
+                    insertVarTable(userVar, ref BaseMeterControl.intTable);
+                else if (type == "double")
+                    insertVarTable(userVar, ref BaseMeterControl.doubleTable);
+                else
+                    insertVarTable(userVar, ref BaseMeterControl.stringTable);
+            }
+            return;
+        }
+
+        //编译
+        private void buildButton_Click(object sender, EventArgs e)
+        {
+            errorNo = 0;
+            splitContainer1.Panel2Collapsed = true;
+            rebuildVarTable();  //载入用户变量
+            checkVar();         //检查控件的参数
+
+        }
+        private void checkVar() {
+            List<BaseMeterControl> controlList = BaseMeterControl.meterControl[0];
+            int index = 0;
+            while (true) {
+                BaseMeterControl control = controlList[index];
+                List<string> varList = control.functionVars;
+                int count = varList.Count();
+                for (int i = 0; i < count; i++)
+                {
+                    // BaseMeterControl.meterControl[0][index].
+                }
+            }
+
+        }
+        private void addErrorItem(int no, string errorInfo, string errorID) {
+            ListViewItem item = new ListViewItem();
+            item.Text = no.ToString();
+            item.SubItems.Add(errorInfo);
+            item.SubItems.Add(errorID);
+            errorListView.Items.Add(item);
+        }
+
+        private void errorListViewInit(){
+            
+                       
+            return;
+        }
+
+
+        #endregion
+
+
+
+
+
+        private void enableAllControl() {
+            isPrintLine = true;
+            int count = BaseMeterControl.meterControl[0].Count;
+            for (int i = 0; i < count; i++)
+                BaseMeterControl.meterControl[0][i].EnablePrintSqure();
+        }
+
+        private void disableAllControl() {
+            isPrintLine = false;
+            int count = BaseMeterControl.meterControl[0].Count;
+            for (int i = 0; i < count; i++)
+                BaseMeterControl.meterControl[0][i].DisablePrintSqure();
+        }
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+            enableAllControl();
+        }
+
+
+
+
+
+
+
+        #region 画线
+
+        //对外方法，在basemetercontrol中使用，在第二次点击组件时会调用此方法。
+        //作用：在mainpage上画线
+        //写的最恶心的一个地方，感觉把整个程序的层次搞乱了
+        public void pubPrintLine(Point sPoint, Point ePoint) {
+            //画线
+            line templine = new line(sPoint, ePoint, 
+                            BaseMeterControl.preTabID_static, BaseMeterControl.nextTabID_static);
+            lineList.Add(templine);
+            MainPage.Invalidate();
+            disableAllControl();
+
+           
+        }
+
+        public void pubRePrintLine(int tabID, Point prePosition, Point nowPositon) {
+            if (prePosition.X < 0 && prePosition.Y < 0)
+                return;
+            int count = lineList.Count();
+            bool isChange = false;
+            for (int i = 0; i < count; i++) {
+                if (lineList[i].startTabID != tabID && lineList[i].endTabID != tabID)
+                    continue;
+                else if (lineList[i].startTabID == tabID)
+                {
+                    line l = lineList[i];
+                    l.startPoint = new Point
+                        (lineList[i].startPoint.X + nowPositon.X - prePosition.X,
+                        lineList[i].startPoint.Y + nowPositon.Y - prePosition.Y);
+                    lineList[i] = l;
+                    isChange = true;
+                }
+                else {
+                    line l = lineList[i];
+                    l.endPoint = new Point
+                        (lineList[i].endPoint.X + nowPositon.X - prePosition.X,
+                        lineList[i].endPoint.Y + nowPositon.Y - prePosition.Y);
+                    lineList[i] = l;
+                    
+                    isChange = true;
+                }
+            }
+            if(isChange == true)
+                MainPage.Invalidate();
+            
+        }
+        private void printLine (Point sPoint, Point ePoint, bool isDele = false){
+            Color lineColor = Color.Black;
+            if (isDele == true)
+                lineColor = MainPage.BackColor;
+
+            //画线
+            Pen p = new Pen(lineColor, 2);
+            Graphics g = MainPage.CreateGraphics(); //this.CreateGraphics()
+            //抗锯齿
+            g.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            //设置箭头
+            System.Drawing.Drawing2D.AdjustableArrowCap lineArrow =
+                 new System.Drawing.Drawing2D.AdjustableArrowCap(4, 4, true);
+            p.CustomEndCap = lineArrow;
+
+
+           // p.DashStyle = System.Drawing.Drawing2D.DashStyle.Solid;//恢复实线
+           // p.EndCap = System.Drawing.Drawing2D.LineCap.ArrowAnchor;//定义线尾的样式为箭头
+            g.DrawLine(p, sPoint, ePoint);
+            p.Dispose();
+            g.Dispose();
+        }
+
+        private void deleLine(Point sPoint, Point ePoint) {
+            printLine(sPoint ,ePoint ,true);
+        }
+        
+        
+      
+        private void MainPage_Paint_1(object sender, PaintEventArgs e)
+        {   //载入时，不进行重绘
+
+            int count = lineList.Count;
+            for (int i = 0; i < count; i++)
+                printLine(lineList[i].startPoint, lineList[i].endPoint);
+
+        }
+
+
+
+        #endregion
+
+       
+       
+
+       
+
+
+
+
+        
 
 
 

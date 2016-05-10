@@ -5,9 +5,8 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
-using TpsControl;
 using MethodMeter;
-
+using TpsControl;
 namespace MethodFlowControl
 {
     public partial class Flow_Add : TpsControl.FlowFuncControl

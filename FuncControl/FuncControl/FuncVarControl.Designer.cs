@@ -49,6 +49,7 @@
             // textBox1
             // 
             this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBox1.Cursor = System.Windows.Forms.Cursors.Default;
             this.textBox1.Location = new System.Drawing.Point(0, 15);
             this.textBox1.Name = "textBox1";
             this.textBox1.ReadOnly = true;
@@ -64,13 +65,14 @@
             this.varName.Location = new System.Drawing.Point(136, 15);
             this.varName.Name = "varName";
             this.varName.ReadOnly = true;
-            this.varName.Size = new System.Drawing.Size(136, 21);
+            this.varName.Size = new System.Drawing.Size(137, 21);
             this.varName.TabIndex = 0;
             this.varName.TextChanged += new System.EventHandler(this.varName_TextChanged);
             // 
             // textBox2
             // 
             this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBox2.Cursor = System.Windows.Forms.Cursors.Default;
             this.textBox2.Location = new System.Drawing.Point(0, 34);
             this.textBox2.Name = "textBox2";
             this.textBox2.ReadOnly = true;
@@ -86,13 +88,14 @@
             this.varType.Location = new System.Drawing.Point(135, 34);
             this.varType.Name = "varType";
             this.varType.ReadOnly = true;
-            this.varType.Size = new System.Drawing.Size(136, 21);
+            this.varType.Size = new System.Drawing.Size(138, 21);
             this.varType.TabIndex = 0;
             this.varType.TextChanged += new System.EventHandler(this.varType_TextChanged);
             // 
             // textBox3
             // 
             this.textBox3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBox3.Cursor = System.Windows.Forms.Cursors.Default;
             this.textBox3.Location = new System.Drawing.Point(0, 54);
             this.textBox3.Name = "textBox3";
             this.textBox3.ReadOnly = true;
@@ -106,7 +109,7 @@
             this.varValue.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.varValue.Location = new System.Drawing.Point(135, 54);
             this.varValue.Name = "varValue";
-            this.varValue.Size = new System.Drawing.Size(136, 21);
+            this.varValue.Size = new System.Drawing.Size(138, 21);
             this.varValue.TabIndex = 7;
             // 
             // FuncVarControl

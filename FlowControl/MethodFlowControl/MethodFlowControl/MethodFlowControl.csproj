@@ -32,7 +32,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="MethodMeter">
-      <HintPath>..\..\..\MeterControl\MethodMeter\MethodMeter\obj\Debug\MethodMeter.dll</HintPath>
+      <HintPath>..\..\..\MeterControl\MethodMeter\MethodMeter\bin\Debug\MethodMeter.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -43,7 +43,8 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
-    <Reference Include="TpsControl">
+    <Reference Include="TpsControl, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\FuncControl\FuncControl\obj\Debug\TpsControl.dll</HintPath>
     </Reference>
   </ItemGroup>

@@ -49,8 +49,9 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
-    <Reference Include="TpsControl">
-      <HintPath>..\..\FuncControl\FuncControl\bin\Debug\TpsControl.dll</HintPath>
+    <Reference Include="TpsControl, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\FuncControl\FuncControl\obj\Debug\TpsControl.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

@@ -98,6 +98,8 @@ namespace TpsControl
         #region 对外方法
         public List<string> GetVar() {
             int count = valTextBoxes.Count;
+            if (count == 0)
+                return null;
             List<string> vars = new List<string>();
             for (int i = 0; i < count; ++i) {
                 string str = valTextBoxes[i].Text;

@@ -11,7 +11,8 @@ namespace TpsControl
         public bool isInput;
         public string sName;
         public string sType;
-        public VarInfo(bool isinput, string name, string type) {
+        public string sVar;
+        public VarInfo(bool isinput, string name, string type, string sVar="") {
             isInput = isinput;
             sName = name;
             sType = type;

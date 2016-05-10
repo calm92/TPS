@@ -7,24 +7,53 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Collections;
+//using MainForm;
 
 namespace TpsControl
 {
     public partial class BaseMeterControl : UserControl
     {
-        private List<string> funcVars;
-        protected List<VarInfo> varInfoList= new List<VarInfo>();
+        #region 变量
+        private List<string> funcVars = new List<string>();
+        public List<VarInfo> varInfoList= new List<VarInfo>();
         //获得函数参数：
         //funcVarPanel.GetVar();
         protected VarPanel funcVarPanel;
+
         //二维，第一维表示图，第二位表示位
+        //记录每个图中的metercontrol
         static public List<List<BaseMeterControl>> meterControl = new List<List<BaseMeterControl>>();
+       
         //变量Panel父容器，是mainfom里面的varPanel
         static public Panel varPanelParent;
 
+        //static public MainForm.MainForm mainForm;
+        static public TabPage mainPage;
+        //变量树
+        static public Hashtable intTable = new Hashtable();
+        static public Hashtable doubleTable = new Hashtable();
+        static public Hashtable stringTable = new Hashtable();
+
         static public Color FormBackColor = Color.White;
+       
+        //在连线阶段使用，表示连线中，线的两端图号id(暂时只考虑一维情况)，注意和下面的nextID区别
+        static public int preTabID_static;
+        static public int nextTabID_static;
+        
         public int GraphID; //图号
         public int TabID;   //位号
+      
+        //表示下一个连接的图号，若为-1，则表示是流程图最后一个流程
+        public int nextID_local = -1;
+        public int preID_local = -1;
+        //记录是否画框的状态
+        private bool isEnablePrintSqure = false;
+
+        //辅助记录点击时的坐标位置
+        static Point sPtoMainPage = new Point(-1,-1);
+        static Point ePtoMainPage = new Point(-1,-1);
+        #endregion
 
         public BaseMeterControl()
         {
@@ -53,16 +82,19 @@ namespace TpsControl
         {
             squre.MouseHover += new EventHandler(squre_MouseHover);
             squre.MouseLeave += new EventHandler(squre_MouseLeave);
-            squre.MouseMove -= new MouseEventHandler(squre_MouseMove);
-            squre.MouseDown -= new MouseEventHandler(squre_MouseDown);
+            isEnablePrintSqure = true;
+            
+           // squre.MouseMove -= new MouseEventHandler(squre_MouseMove);
+           // squre.MouseDown -= new MouseEventHandler(squre_MouseDown);
         }
 
         public void DisablePrintSqure()
         {
             squre.MouseHover -= new EventHandler(squre_MouseHover);
             squre.MouseLeave -= new EventHandler(squre_MouseLeave);
-            squre.MouseMove += new MouseEventHandler(squre_MouseMove);
-            squre.MouseDown += new MouseEventHandler(squre_MouseDown);
+            isEnablePrintSqure = false;
+            //squre.MouseMove += new MouseEventHandler(squre_MouseMove);
+            //squre.MouseDown += new MouseEventHandler(squre_MouseDown);
         }
 
         public void AdjustSize()
@@ -156,6 +188,7 @@ namespace TpsControl
 
         public List<string> functionVars {
             get {
+                
                 funcVars = funcVarPanel.GetVar();
                 return funcVars;
             }
@@ -225,16 +258,34 @@ namespace TpsControl
             m_lastMPoint = Control.MousePosition;
             m_lastSqurePoint = (sender as Label).Location;
             m_lastLablePoint = label1.Location;
+            if(isEnablePrintSqure == false)
+                sPtoMainPage = mainPage.PointToClient(MousePosition);
         }
 
         private void squre_MouseMove(object sender, MouseEventArgs e)
         {
+            if (isEnablePrintSqure == true)
+                return;
             if (e.Button == MouseButtons.Left)
             {
+                //移动组件
+                label1.Location = new Point
+                    (m_lastLablePoint.X + Control.MousePosition.X - m_lastMPoint.X, 
+                    m_lastLablePoint.Y + Control.MousePosition.Y - m_lastMPoint.Y);
+                squre.Location = new Point
+                    (m_lastSqurePoint.X + Control.MousePosition.X - m_lastMPoint.X,
+                    m_lastSqurePoint.Y + Control.MousePosition.Y - m_lastMPoint.Y);
 
-                label1.Location = new Point(m_lastLablePoint.X + Control.MousePosition.X - m_lastMPoint.X, m_lastLablePoint.Y + Control.MousePosition.Y - m_lastMPoint.Y);
-                squre.Location = new Point(m_lastSqurePoint.X + Control.MousePosition.X - m_lastMPoint.X, m_lastSqurePoint.Y + Control.MousePosition.Y - m_lastMPoint.Y);
+                //移动连接线,通过组件相对于mainPage的位置来计算
+                sPtoMainPage = ePtoMainPage;
+                //计算移动后，组件相对于mainPage的位置
+                Point mouseToControl = this.squre.PointToClient(MousePosition); //鼠标相对于meter的坐标
+                Point mouseToMainpage = mainPage.PointToClient(MousePosition);
+                ePtoMainPage = new Point(mouseToMainpage.X - mouseToControl.X,
+                                mouseToMainpage.Y -mouseToControl.Y);
+               // mainForm.pubRePrintLine(this.TabID, sPtoMainPage, ePtoMainPage);
             }
+              
         }
 
         #endregion
@@ -243,21 +294,76 @@ namespace TpsControl
 
         #region 点击事件
 
-        private void squre_Click(object sender, EventArgs e)
-        {
-            //显示点击效果
-            DateTime clickTime = DateTime.Now;
-            squre.BorderStyle = BorderStyle.Fixed3D;
-            TimeSpan span = DateTime.Now - clickTime ;
-            while (span.Milliseconds <= 100) {
-                span = DateTime.Now - clickTime;
+        protected void squre_Click(object sender, EventArgs e)
+        {   //若没有使能画框
+            //显示点击效果，出现参数列表
+            if (isEnablePrintSqure == false)
+            {
+                DateTime clickTime = DateTime.Now;
+                squre.BorderStyle = BorderStyle.Fixed3D;
+                TimeSpan span = DateTime.Now - clickTime;
+                while (span.Milliseconds <= 100)
+                {
+                    span = DateTime.Now - clickTime;
+                }
+                squre.BorderStyle = BorderStyle.FixedSingle;
+
+                ShowVar();
+
+                return;
             }
-            squre.BorderStyle = BorderStyle.FixedSingle;
 
-            ShowVar();
+            //若使能画框，则记录点击时的ID和position
+            if (isEnablePrintSqure == true)
+            {
 
-            return;
+                Point pToMainpage = mainPage.PointToClient(MousePosition);
+              
+                //第一次点击
+                if (sPtoMainPage.X < 0 && sPtoMainPage.Y < 0)
+                {
+                    sPtoMainPage = adjustPosition(pToMainpage);
+                    preTabID_static = this.TabID;
+                }
+                //第二次点击
+                else
+                {
+                    ePtoMainPage = adjustPosition(pToMainpage);
+                    nextTabID_static = this.TabID;
+                    //mainForm.pubPrintLine(sPtoMainPage,ePtoMainPage);
+                    sPtoMainPage = new Point(-1,-1);
+                    ePtoMainPage = new Point(-1,-1);
+                    meterControl[0][preTabID_static].nextID_local = nextTabID_static;
+                    meterControl[0][nextTabID_static].preID_local = preTabID_static;                    
+                }
+                return;
+            }
         }
+        //输入是鼠标相对于mainPage的坐标
+        //调整鼠标点的位置到4条边中的其中一条的中点，返回相对于mainPage的坐标位置
+        private Point adjustPosition(Point p) {
+
+            Point mouseToControl = this.squre.PointToClient(MousePosition); //鼠标相对于meter的坐标
+            
+            Point left = new Point(0, squre.Height / 2);
+            Point down = new Point(  squre.Width / 2,  squre.Height);
+            Point right = new Point( squre.Width, squre.Height/2);
+            Point up = new Point(squre.Width/2, 0);
+
+            Point closePoint;
+            if (isInclude(left, mouseToControl))
+                closePoint = left;
+            else if (isInclude(down, mouseToControl))
+                closePoint = down;
+            else if (isInclude(right, mouseToControl))
+                closePoint = right;
+            else
+                closePoint = up;
+            Point adjustP = new Point(p.X+ closePoint.X - mouseToControl.X,
+                                p.Y + closePoint.Y-mouseToControl.Y);
+            return adjustP;
+
+         }
         #endregion
 
         #region 画红框
@@ -326,6 +432,10 @@ namespace TpsControl
             g.DrawRectangle(p, location.X, location.Y, redSqureLength, redSqureLength);
             p.Dispose();
             g.Dispose();
+
+            //判断是否点击左键，若点击，则记录preID
+            //if(MouseButtons == System.Windows.Forms.MouseButtons.Left)
+           
         }
 
         /***********************************************************
@@ -442,9 +552,26 @@ namespace TpsControl
 
         #endregion
 
+        private void squre_MouseUp(object sender, MouseEventArgs e)
+        {
+            if (isEnablePrintSqure == false)
+            {
+                sPtoMainPage = ePtoMainPage;
+                //计算移动后，组件相对于mainPage的位置
+                Point mouseToControl = this.squre.PointToClient(MousePosition); //鼠标相对于meter的坐标
+                Point mouseToMainpage = mainPage.PointToClient(MousePosition);
+                ePtoMainPage = new Point(mouseToMainpage.X - mouseToControl.X,
+                                mouseToMainpage.Y - mouseToControl.Y);
+               //mainForm.pubRePrintLine(this.TabID, sPtoMainPage, ePtoMainPage);
+                sPtoMainPage = new Point(-1, -1);
+                ePtoMainPage = new Point(-1, -1);
+            }
+
+        }
 
 
 
+      
 
     }
 }

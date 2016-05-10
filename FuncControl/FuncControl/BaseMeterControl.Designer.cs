@@ -50,6 +50,7 @@
             this.squre.MouseLeave += new System.EventHandler(this.squre_MouseLeave);
             this.squre.MouseHover += new System.EventHandler(this.squre_MouseHover);
             this.squre.MouseMove += new System.Windows.Forms.MouseEventHandler(this.squre_MouseMove);
+            this.squre.MouseUp += new System.Windows.Forms.MouseEventHandler(this.squre_MouseUp);
             // 
             // label1
             // 
