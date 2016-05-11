@@ -51,6 +51,12 @@
     <Compile Include="Meter_Add.Designer.cs">
       <DependentUpon>Meter_Add.cs</DependentUpon>
     </Compile>
+    <Compile Include="Meter_Result.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Meter_Result.Designer.cs">
+      <DependentUpon>Meter_Result.cs</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Service Include="{94E38DFF-614B-4cbd-B67C-F211BB35CE8B}" />
   </ItemGroup>
@@ -58,6 +64,15 @@
     <EmbeddedResource Include="Meter_Add.resx">
       <DependentUpon>Meter_Add.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Meter_Result.resx">
+      <DependentUpon>Meter_Result.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\FuncControl\FuncControl\SetControl.csproj">
+      <Project>{9CAFB137-5A17-45B6-A837-09C9AE0E4AB8}</Project>
+      <Name>SetControl</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

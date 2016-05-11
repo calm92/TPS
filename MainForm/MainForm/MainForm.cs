@@ -11,6 +11,8 @@ using TpsControl;
 using MethodFlowControl;
 using System.Collections;
 using System.Drawing.Drawing2D;
+using MethodMeter;
+
 namespace MainForm
 {
     public partial class MainForm : Form
@@ -48,7 +50,8 @@ namespace MainForm
             SetScope.LabelText = "SetScope";
             SetScope.ButtonText = "SCOPE";
 
-            //
+            //Test
+            
         }
 
         #region 变量
@@ -112,13 +115,13 @@ namespace MainForm
             SetControlInit();
             ControlTabInit();
             addForm(MainPage);
-
+            
             //控件static参数设置
             BaseMeterControl.varPanelParent = varPanel;
             FlowFuncControl.FormControl = formControl;
             UserVar.userVarPanel = userVarPanel;
             BaseMeterControl.mainPage = MainPage;
-           // BaseMeterControl.mainForm = this;
+            Meter_Result.resultListView = resultListView;
             
             //ToolTips
             DrawLineTip.SetToolTip(drawLineButton,"连接线");
@@ -217,6 +220,7 @@ namespace MainForm
         {
             UserVar insertUserVar = new UserVar();
             insertUserVar.Parent = userVarPanel;
+            //防止加入滚动条后，出现坐标错误
             userVarPanel.VerticalScroll.Value = userVarPanel.VerticalScroll.Minimum;
 
             //确定控件位置
@@ -318,39 +322,110 @@ namespace MainForm
         private void buildButton_Click(object sender, EventArgs e)
         {
             errorNo = 0;
-            splitContainer1.Panel2Collapsed = true;
+            splitContainer1.Panel2Collapsed = false;
+            errorListView.Items.Clear();
+            resultListView.Items.Clear();
+            errorListView.BringToFront();
             rebuildVarTable();  //载入用户变量
             checkVar();         //检查控件的参数
 
         }
-        private void checkVar() {
-            List<BaseMeterControl> controlList = BaseMeterControl.meterControl[0];
-            int index = 0;
-            while (true) {
-                BaseMeterControl control = controlList[index];
-                List<string> varList = control.functionVars;
-                int count = varList.Count();
-                for (int i = 0; i < count; i++)
-                {
-                    // BaseMeterControl.meterControl[0][index].
-                }
-            }
-
+        private void 关闭窗口ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            errorListView.Items.Clear();
+            resultListView.Items.Clear();
+            splitContainer1.Panel2Collapsed = true;
         }
-        private void addErrorItem(int no, string errorInfo, string errorID) {
+
+         private void addErrorItem(int no, string errorInfo, string errorID) {
             ListViewItem item = new ListViewItem();
             item.Text = no.ToString();
             item.SubItems.Add(errorInfo);
             item.SubItems.Add(errorID);
             errorListView.Items.Add(item);
         }
+        private void checkVarIter(ref VarInfo varInfo, int index){
+            if (varInfo.isInput == true) {
+                 //输入参数没有
+                 if (varInfo.sVar == "")
+                    addErrorItem(errorNo++, "输入未给定",
+                              "GraphID:" + index.ToString() + "  变量：" + varInfo.sName);
+                 
+                 //参数错误
+                        
+                 else if (varInfo.sType == "int") {
+                      if (varInfo.sVar == "")
+                            return;
+                      if(BaseMeterControl.intTable.Contains(varInfo.sVar) == true)
+                            return;
+                      int value = 0;
+                      bool isTranslate = int.TryParse(varInfo.sVar, out value);
+                      if (isTranslate)
+                         return;
+                      else
+                        //报错
+                          addErrorItem(errorNo++, "组件参数不符合",
+                            "GraphID:" + index.ToString() + "  变量：" + varInfo.sName);
+                 }
+                 else if(varInfo.sType == "double"){
+                    if(varInfo.sVar == "")
+                        return;
+                    if(BaseMeterControl.doubleTable.Contains(varInfo.sVar) == true)
+                        return;
+                    double value = 0.0;
+                    bool isTranslate = double.TryParse(varInfo.sVar, out value);
+                     if(isTranslate)
+                         return;
+                     else
+                          addErrorItem(errorNo++, "组件参数不符合",
+                                "GraphID:"+ index.ToString() + "  变量：" + varInfo.sName  );
+                 }
+                 else if(varInfo.sType == "string"){
+                    if(varInfo.sVar == "")
+                        return;
+                    else if (BaseMeterControl.stringTable.Contains(varInfo.sVar) == true)
+                        return;
 
-        private void errorListViewInit(){
-            
-                       
-            return;
+                    else if ( varInfo.sVar.EndsWith("\"") && varInfo.sVar.StartsWith("\""))
+                {
+                    varInfo.sVar = varInfo.sVar.Substring(1, varInfo.sVar.Length - 2);
+                    
+                }
+                else
+                    //报错************************************
+                        addErrorItem(errorNo++, "组件参数不符合",
+                               "GraphID:" + index.ToString() + "  变量：" + varInfo.sName);
+                 }
+             }
         }
+        private void checkVar() {
+            List<BaseMeterControl> controlList = BaseMeterControl.meterControl[0];
+            int index = 0;  //组件下标
+            while (index >= 0) {
+                BaseMeterControl control = controlList[index];
+                List<string> varList = control.functionVars;//得到参数列表的用户输入
+                if (varList == null) {
+                    index = BaseMeterControl.meterControl[0][index].nextID_local;
+                    continue;
+                }
+                int count = varList.Count();
+                //输入参数到varInfo中
+                for (int i = 0; i < count; i++)
+                {
+                    BaseMeterControl.meterControl[0][index].varInfoList[i].sVar = varList[i];
+                }
+                //检查参数是否符合
+                for (int i = 0; i < count; i++) {
+                    VarInfo varinfo =BaseMeterControl.meterControl[0][index].varInfoList[i];         
+                    checkVarIter(
+                                ref varinfo, index);
+                    //需要更新string 所以需要重新赋值
+                    BaseMeterControl.meterControl[0][index].varInfoList[i] = varinfo;
+                    }
+                index = BaseMeterControl.meterControl[0][index].nextID_local;
+                }
 
+            }
 
         #endregion
 
@@ -371,10 +446,17 @@ namespace MainForm
             for (int i = 0; i < count; i++)
                 BaseMeterControl.meterControl[0][i].DisablePrintSqure();
         }
+
+        //画线按钮
         private void button1_Click(object sender, EventArgs e)
         {
+            int count = BaseMeterControl.meterControl[0].Count;
+            for (int i = 0; i < count; i++) {
+                BaseMeterControl.meterControl[0][i].printLine = pubPrintLine;
+                BaseMeterControl.meterControl[0][i].RePrintLine = pubRePrintLine;
 
-            enableAllControl();
+            }
+                enableAllControl();
         }
 
 
@@ -461,7 +543,8 @@ namespace MainForm
       
         private void MainPage_Paint_1(object sender, PaintEventArgs e)
         {   //载入时，不进行重绘
-
+            //userVarPanel.VerticalScroll.Value = userVarPanel.VerticalScroll.Minimum;
+            //MainPage.VerticalScroll.Value = MainPage.VerticalScroll.Minimum;
             int count = lineList.Count;
             for (int i = 0; i < count; i++)
                 printLine(lineList[i].startPoint, lineList[i].endPoint);
@@ -472,15 +555,41 @@ namespace MainForm
 
         #endregion
 
-       
-       
+        #region 运行模块
+        private void startButton_Click(object sender, EventArgs e)
+        {
+            Meter_Result.resultID = 0;
+            splitContainer1.Panel2Collapsed = false;
+            errorListView.Items.Clear();
+            resultListView.Items.Clear();
+            resultListView.BringToFront();
 
-       
+            //运行函数
+            int index = BaseMeterControl.meterControl[0][0].nextID_local;
+            while (index >= 0) {
+                BaseMeterControl.meterControl[0][index].function();
+                index = BaseMeterControl.meterControl[0][index].nextID_local;
+            }
+            return;
+
+        }
+
+
+        #endregion
 
 
 
 
-        
+
+
+
+
+
+
+
+
+
+
 
 
 

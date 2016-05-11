@@ -100,11 +100,21 @@ namespace FuncControl
 
         private void BaseSetControl_DoubleClick(object sender, EventArgs e)
         {
+            if (setFlow == null)
+                return;
             tabControl.SelectedTab = tabPage;
             tabControl.TabPages.Add(tabPage);
             tabPage.Text = tabName;
-             setFlow.BringToFront();
-            this.BackColor = Color.Transparent;
+            
+            
+            
+                setFlow.BringToFront();
+                this.BackColor = Color.Transparent;
+            
+        }
+
+        protected void disableDoubleClick() {
+            this.DoubleClick -= new EventHandler(BaseSetControl_DoubleClick);
         }
 
     }

@@ -104,9 +104,14 @@ namespace TpsControl
 
              this.MouseMove -= new MouseEventHandler(FlowFuncControl_MouseMove);
              tabNum = -1;
-             meterControl.controlParent = FormControl.SelectedTab;
-             meterControl.Visible = false;
-             meterControl.ShowVar();
+             if (meterControl == null)
+                 return;
+             else
+             {
+                 meterControl.controlParent = FormControl.SelectedTab;
+                 meterControl.Visible = false;
+                 meterControl.ShowVar();
+             }
             // BaseMeterControl.meterControl[FormControl.SelectedIndex].Add(meterControl);
         }
 
@@ -159,6 +164,7 @@ namespace TpsControl
             this.MouseMove -= new MouseEventHandler(FlowFuncControl_MouseMove);
             this.label2.MouseMove -= new MouseEventHandler(label2_MouseMove);
             this.label1.MouseMove -= new MouseEventHandler(label1_MouseMove);
+            disableDoubleClick();
         }
 
     }

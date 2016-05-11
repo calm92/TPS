@@ -28,7 +28,7 @@ namespace TpsControl
         //变量Panel父容器，是mainfom里面的varPanel
         static public Panel varPanelParent;
 
-        //static public MainForm.MainForm mainForm;
+       //static public MainForm.MainForm mainForm;
         static public TabPage mainPage;
         //变量树
         static public Hashtable intTable = new Hashtable();
@@ -53,6 +53,13 @@ namespace TpsControl
         //辅助记录点击时的坐标位置
         static Point sPtoMainPage = new Point(-1,-1);
         static Point ePtoMainPage = new Point(-1,-1);
+
+        //使用委托，调用mainform中的画线方法
+        public delegate void delePL(Point sP,Point eP); //画线委托
+        public delegate void deleRPL(int tabID, Point sP, Point eP);    //重新画线委托
+
+        public delePL printLine;
+        public deleRPL RePrintLine;
         #endregion
 
         public BaseMeterControl()
@@ -268,6 +275,9 @@ namespace TpsControl
                 return;
             if (e.Button == MouseButtons.Left)
             {
+                mainPage.VerticalScroll.Value = mainPage.VerticalScroll.Minimum;
+                mainPage.HorizontalScroll.Value = mainPage.HorizontalScroll.Minimum;
+
                 //移动组件
                 label1.Location = new Point
                     (m_lastLablePoint.X + Control.MousePosition.X - m_lastMPoint.X, 
@@ -276,6 +286,7 @@ namespace TpsControl
                     (m_lastSqurePoint.X + Control.MousePosition.X - m_lastMPoint.X,
                     m_lastSqurePoint.Y + Control.MousePosition.Y - m_lastMPoint.Y);
 
+                
                 //移动连接线,通过组件相对于mainPage的位置来计算
                 sPtoMainPage = ePtoMainPage;
                 //计算移动后，组件相对于mainPage的位置
@@ -283,7 +294,10 @@ namespace TpsControl
                 Point mouseToMainpage = mainPage.PointToClient(MousePosition);
                 ePtoMainPage = new Point(mouseToMainpage.X - mouseToControl.X,
                                 mouseToMainpage.Y -mouseToControl.Y);
-               // mainForm.pubRePrintLine(this.TabID, sPtoMainPage, ePtoMainPage);
+                //mainForm.pubRePrintLine(this.TabID, sPtoMainPage, ePtoMainPage);
+                if(RePrintLine != null)
+                    RePrintLine(this.TabID,sPtoMainPage,ePtoMainPage);
+           
             }
               
         }
@@ -331,6 +345,7 @@ namespace TpsControl
                     ePtoMainPage = adjustPosition(pToMainpage);
                     nextTabID_static = this.TabID;
                     //mainForm.pubPrintLine(sPtoMainPage,ePtoMainPage);
+                    printLine(sPtoMainPage,ePtoMainPage);
                     sPtoMainPage = new Point(-1,-1);
                     ePtoMainPage = new Point(-1,-1);
                     meterControl[0][preTabID_static].nextID_local = nextTabID_static;
@@ -556,6 +571,8 @@ namespace TpsControl
         {
             if (isEnablePrintSqure == false)
             {
+                mainPage.VerticalScroll.Value = mainPage.VerticalScroll.Minimum;
+                mainPage.HorizontalScroll.Value = mainPage.HorizontalScroll.Minimum;
                 sPtoMainPage = ePtoMainPage;
                 //计算移动后，组件相对于mainPage的位置
                 Point mouseToControl = this.squre.PointToClient(MousePosition); //鼠标相对于meter的坐标
@@ -563,13 +580,18 @@ namespace TpsControl
                 ePtoMainPage = new Point(mouseToMainpage.X - mouseToControl.X,
                                 mouseToMainpage.Y - mouseToControl.Y);
                //mainForm.pubRePrintLine(this.TabID, sPtoMainPage, ePtoMainPage);
+                if(RePrintLine != null)
+                    RePrintLine(this.TabID, sPtoMainPage, ePtoMainPage);
                 sPtoMainPage = new Point(-1, -1);
                 ePtoMainPage = new Point(-1, -1);
             }
 
         }
 
-
+        //虚函数，用来承载不同组件的执行函数
+        public virtual void function() {
+            return;
+        }
 
       
 

@@ -11,7 +11,7 @@ namespace TpsControl
         public bool isInput;
         public string sName;
         public string sType;
-        public string sVar;
+        public string sVar; //参数的值
         public VarInfo(bool isinput, string name, string type, string sVar="") {
             isInput = isinput;
             sName = name;

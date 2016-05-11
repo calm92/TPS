@@ -49,6 +49,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Flow_Result.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Flow_Result.Designer.cs">
+      <DependentUpon>Flow_Result.cs</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Flow_Add.cs">
       <SubType>UserControl</SubType>
@@ -57,6 +63,12 @@
       <DependentUpon>Flow_Add.cs</DependentUpon>
     </Compile>
     <Service Include="{94E38DFF-614B-4cbd-B67C-F211BB35CE8B}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\FuncControl\FuncControl\SetControl.csproj">
+      <Project>{9CAFB137-5A17-45B6-A837-09C9AE0E4AB8}</Project>
+      <Name>SetControl</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -33,9 +33,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="FuncControl">
-      <HintPath>..\..\FuncControl\FuncControl\bin\Debug\FuncControl.dll</HintPath>
-    </Reference>
     <Reference Include="MethodFlowControl">
       <HintPath>..\..\FlowControl\MethodFlowControl\MethodFlowControl\bin\Debug\MethodFlowControl.dll</HintPath>
     </Reference>
@@ -87,6 +84,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\MeterControl\MethodMeter\MethodMeter\MethodMeter.csproj">
+      <Project>{1914a700-ccb9-48ab-ad48-8aa72ea5f490}</Project>
+      <Name>MethodMeter</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

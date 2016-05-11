@@ -31,6 +31,13 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.MenuPanel = new System.Windows.Forms.Panel();
+            this.startButton = new System.Windows.Forms.Button();
+            this.buildButton = new System.Windows.Forms.Button();
+            this.menu = new System.Windows.Forms.MenuStrip();
+            this.文件ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.编辑ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.帮助ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.drawLineButton = new System.Windows.Forms.Button();
             this.splitLeft = new System.Windows.Forms.SplitContainer();
             this.splitLeftUp = new System.Windows.Forms.SplitContainer();
             this.ControlTab = new System.Windows.Forms.TabControl();
@@ -38,33 +45,38 @@
             this.InstruementFlow = new System.Windows.Forms.FlowLayoutPanel();
             this.MethodPage = new System.Windows.Forms.TabPage();
             this.MethodFlow = new System.Windows.Forms.FlowLayoutPanel();
+            this.flow_Result1 = new MethodFlowControl.Flow_Result();
             this.flow_Add1 = new MethodFlowControl.Flow_Add();
             this.HidePage = new System.Windows.Forms.TabPage();
             this.DMMFlow = new System.Windows.Forms.FlowLayoutPanel();
             this.ScopeFlow = new System.Windows.Forms.FlowLayoutPanel();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.splitRight = new System.Windows.Forms.SplitContainer();
+            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.formControl = new System.Windows.Forms.TabControl();
             this.MainPage = new System.Windows.Forms.TabPage();
-            this.drawLineButton = new System.Windows.Forms.Button();
+            this.resultListView = new System.Windows.Forms.ListView();
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.errorListView = new System.Windows.Forms.ListView();
+            this.序号 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.错误描述 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.错误位置详情 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.closeDwonWin = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.关闭窗口ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.splitRightUp = new System.Windows.Forms.SplitContainer();
             this.varPanel = new System.Windows.Forms.Panel();
             this.userVarPanel = new System.Windows.Forms.Panel();
             this.userVarMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.插入变量ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.menu = new System.Windows.Forms.MenuStrip();
-            this.文件ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.编辑ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.帮助ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.DrawLineTip = new System.Windows.Forms.ToolTip(this.components);
-            this.buildButton = new System.Windows.Forms.Button();
             this.buildTip = new System.Windows.Forms.ToolTip(this.components);
-            this.errorListView = new System.Windows.Forms.ListView();
-            this.序号 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.错误描述 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.错误位置详情 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.MenuPanel.SuspendLayout();
+            this.menu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitLeft)).BeginInit();
             this.splitLeft.Panel1.SuspendLayout();
             this.splitLeft.Panel2.SuspendLayout();
@@ -83,21 +95,22 @@
             this.splitRight.Panel1.SuspendLayout();
             this.splitRight.Panel2.SuspendLayout();
             this.splitRight.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
+            this.splitContainer1.Panel1.SuspendLayout();
+            this.splitContainer1.Panel2.SuspendLayout();
+            this.splitContainer1.SuspendLayout();
             this.formControl.SuspendLayout();
+            this.closeDwonWin.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitRightUp)).BeginInit();
             this.splitRightUp.Panel1.SuspendLayout();
             this.splitRightUp.Panel2.SuspendLayout();
             this.splitRightUp.SuspendLayout();
             this.userVarMenu.SuspendLayout();
-            this.menu.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
-            this.splitContainer1.Panel1.SuspendLayout();
-            this.splitContainer1.Panel2.SuspendLayout();
-            this.splitContainer1.SuspendLayout();
             this.SuspendLayout();
             // 
             // MenuPanel
             // 
+            this.MenuPanel.Controls.Add(this.startButton);
             this.MenuPanel.Controls.Add(this.buildButton);
             this.MenuPanel.Controls.Add(this.menu);
             this.MenuPanel.Controls.Add(this.drawLineButton);
@@ -106,6 +119,69 @@
             this.MenuPanel.Name = "MenuPanel";
             this.MenuPanel.Size = new System.Drawing.Size(721, 52);
             this.MenuPanel.TabIndex = 0;
+            // 
+            // startButton
+            // 
+            this.startButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("startButton.BackgroundImage")));
+            this.startButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.startButton.Location = new System.Drawing.Point(49, 29);
+            this.startButton.Name = "startButton";
+            this.startButton.Size = new System.Drawing.Size(27, 23);
+            this.startButton.TabIndex = 3;
+            this.startButton.UseVisualStyleBackColor = true;
+            this.startButton.Click += new System.EventHandler(this.startButton_Click);
+            // 
+            // buildButton
+            // 
+            this.buildButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("buildButton.BackgroundImage")));
+            this.buildButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.buildButton.Location = new System.Drawing.Point(23, 29);
+            this.buildButton.Name = "buildButton";
+            this.buildButton.Size = new System.Drawing.Size(27, 23);
+            this.buildButton.TabIndex = 2;
+            this.buildButton.UseVisualStyleBackColor = true;
+            this.buildButton.Click += new System.EventHandler(this.buildButton_Click);
+            // 
+            // menu
+            // 
+            this.menu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.文件ToolStripMenuItem,
+            this.编辑ToolStripMenuItem,
+            this.帮助ToolStripMenuItem});
+            this.menu.Location = new System.Drawing.Point(0, 0);
+            this.menu.Name = "menu";
+            this.menu.Size = new System.Drawing.Size(721, 25);
+            this.menu.TabIndex = 0;
+            this.menu.Text = "menuStrip1";
+            // 
+            // 文件ToolStripMenuItem
+            // 
+            this.文件ToolStripMenuItem.Name = "文件ToolStripMenuItem";
+            this.文件ToolStripMenuItem.Size = new System.Drawing.Size(44, 21);
+            this.文件ToolStripMenuItem.Text = "文件";
+            // 
+            // 编辑ToolStripMenuItem
+            // 
+            this.编辑ToolStripMenuItem.Name = "编辑ToolStripMenuItem";
+            this.编辑ToolStripMenuItem.Size = new System.Drawing.Size(44, 21);
+            this.编辑ToolStripMenuItem.Text = "编辑";
+            // 
+            // 帮助ToolStripMenuItem
+            // 
+            this.帮助ToolStripMenuItem.Name = "帮助ToolStripMenuItem";
+            this.帮助ToolStripMenuItem.Size = new System.Drawing.Size(44, 21);
+            this.帮助ToolStripMenuItem.Text = "帮助";
+            // 
+            // drawLineButton
+            // 
+            this.drawLineButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("drawLineButton.BackgroundImage")));
+            this.drawLineButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.drawLineButton.Location = new System.Drawing.Point(0, 29);
+            this.drawLineButton.Name = "drawLineButton";
+            this.drawLineButton.Size = new System.Drawing.Size(24, 23);
+            this.drawLineButton.TabIndex = 0;
+            this.drawLineButton.UseVisualStyleBackColor = true;
+            this.drawLineButton.Click += new System.EventHandler(this.button1_Click);
             // 
             // splitLeft
             // 
@@ -195,6 +271,7 @@
             // MethodFlow
             // 
             this.MethodFlow.AutoScroll = true;
+            this.MethodFlow.Controls.Add(this.flow_Result1);
             this.MethodFlow.Controls.Add(this.flow_Add1);
             this.MethodFlow.Dock = System.Windows.Forms.DockStyle.Fill;
             this.MethodFlow.Location = new System.Drawing.Point(3, 3);
@@ -202,13 +279,24 @@
             this.MethodFlow.Size = new System.Drawing.Size(102, 136);
             this.MethodFlow.TabIndex = 0;
             // 
+            // flow_Result1
+            // 
+            this.flow_Result1.BackColor = System.Drawing.Color.Transparent;
+            this.flow_Result1.ButtonText = "PR";
+            this.flow_Result1.ControlParent = this.MethodFlow;
+            this.flow_Result1.LabelText = "ShowResult";
+            this.flow_Result1.Location = new System.Drawing.Point(3, 3);
+            this.flow_Result1.Name = "flow_Result1";
+            this.flow_Result1.Size = new System.Drawing.Size(69, 75);
+            this.flow_Result1.TabIndex = 2;
+            // 
             // flow_Add1
             // 
             this.flow_Add1.BackColor = System.Drawing.Color.Transparent;
             this.flow_Add1.ButtonText = "Meth";
             this.flow_Add1.ControlParent = this.MethodFlow;
             this.flow_Add1.LabelText = "ADD";
-            this.flow_Add1.Location = new System.Drawing.Point(3, 3);
+            this.flow_Add1.Location = new System.Drawing.Point(3, 84);
             this.flow_Add1.Name = "flow_Add1";
             this.flow_Add1.Size = new System.Drawing.Size(69, 75);
             this.flow_Add1.TabIndex = 1;
@@ -271,6 +359,25 @@
             this.splitRight.SplitterDistance = 494;
             this.splitRight.TabIndex = 0;
             // 
+            // splitContainer1
+            // 
+            this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer1.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer1.Name = "splitContainer1";
+            this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            // 
+            // splitContainer1.Panel1
+            // 
+            this.splitContainer1.Panel1.Controls.Add(this.formControl);
+            // 
+            // splitContainer1.Panel2
+            // 
+            this.splitContainer1.Panel2.Controls.Add(this.resultListView);
+            this.splitContainer1.Panel2.Controls.Add(this.errorListView);
+            this.splitContainer1.Size = new System.Drawing.Size(494, 425);
+            this.splitContainer1.SplitterDistance = 289;
+            this.splitContainer1.TabIndex = 1;
+            // 
             // formControl
             // 
             this.formControl.Controls.Add(this.MainPage);
@@ -293,16 +400,97 @@
             this.MainPage.UseVisualStyleBackColor = true;
             this.MainPage.Paint += new System.Windows.Forms.PaintEventHandler(this.MainPage_Paint_1);
             // 
-            // drawLineButton
+            // resultListView
             // 
-            this.drawLineButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("drawLineButton.BackgroundImage")));
-            this.drawLineButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.drawLineButton.Location = new System.Drawing.Point(0, 29);
-            this.drawLineButton.Name = "drawLineButton";
-            this.drawLineButton.Size = new System.Drawing.Size(24, 23);
-            this.drawLineButton.TabIndex = 0;
-            this.drawLineButton.UseVisualStyleBackColor = true;
-            this.drawLineButton.Click += new System.EventHandler(this.button1_Click);
+            this.resultListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader1,
+            this.columnHeader6,
+            this.columnHeader3,
+            this.columnHeader2,
+            this.columnHeader4,
+            this.columnHeader5});
+            this.resultListView.ContextMenuStrip = this.closeDwonWin;
+            this.resultListView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.resultListView.FullRowSelect = true;
+            this.resultListView.GridLines = true;
+            this.resultListView.Location = new System.Drawing.Point(0, 0);
+            this.resultListView.Name = "resultListView";
+            this.resultListView.Size = new System.Drawing.Size(494, 132);
+            this.resultListView.TabIndex = 1;
+            this.resultListView.UseCompatibleStateImageBehavior = false;
+            this.resultListView.View = System.Windows.Forms.View.Details;
+            // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "序号";
+            // 
+            // columnHeader6
+            // 
+            this.columnHeader6.Text = "测试项名称";
+            this.columnHeader6.Width = 150;
+            // 
+            // columnHeader3
+            // 
+            this.columnHeader3.Text = "下限值";
+            // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Text = "测量值";
+            // 
+            // columnHeader4
+            // 
+            this.columnHeader4.Text = "上限值";
+            // 
+            // columnHeader5
+            // 
+            this.columnHeader5.Text = "测试项结果";
+            this.columnHeader5.Width = 87;
+            // 
+            // errorListView
+            // 
+            this.errorListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.序号,
+            this.错误描述,
+            this.错误位置详情});
+            this.errorListView.ContextMenuStrip = this.closeDwonWin;
+            this.errorListView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.errorListView.FullRowSelect = true;
+            this.errorListView.GridLines = true;
+            this.errorListView.Location = new System.Drawing.Point(0, 0);
+            this.errorListView.Name = "errorListView";
+            this.errorListView.Size = new System.Drawing.Size(494, 132);
+            this.errorListView.TabIndex = 0;
+            this.errorListView.UseCompatibleStateImageBehavior = false;
+            this.errorListView.View = System.Windows.Forms.View.Details;
+            // 
+            // 序号
+            // 
+            this.序号.Text = "序号";
+            this.序号.Width = 40;
+            // 
+            // 错误描述
+            // 
+            this.错误描述.Text = "错误描述";
+            this.错误描述.Width = 308;
+            // 
+            // 错误位置详情
+            // 
+            this.错误位置详情.Text = "错误位置详情/变量名";
+            this.错误位置详情.Width = 145;
+            // 
+            // closeDwonWin
+            // 
+            this.closeDwonWin.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.关闭窗口ToolStripMenuItem});
+            this.closeDwonWin.Name = "closeDwonWin";
+            this.closeDwonWin.Size = new System.Drawing.Size(125, 26);
+            // 
+            // 关闭窗口ToolStripMenuItem
+            // 
+            this.关闭窗口ToolStripMenuItem.Name = "关闭窗口ToolStripMenuItem";
+            this.关闭窗口ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.关闭窗口ToolStripMenuItem.Text = "关闭窗口";
+            this.关闭窗口ToolStripMenuItem.Click += new System.EventHandler(this.关闭窗口ToolStripMenuItem_Click);
             // 
             // splitRightUp
             // 
@@ -362,95 +550,6 @@
             this.插入变量ToolStripMenuItem.Text = "插入变量";
             this.插入变量ToolStripMenuItem.Click += new System.EventHandler(this.插入变量ToolStripMenuItem_Click);
             // 
-            // menu
-            // 
-            this.menu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.文件ToolStripMenuItem,
-            this.编辑ToolStripMenuItem,
-            this.帮助ToolStripMenuItem});
-            this.menu.Location = new System.Drawing.Point(0, 0);
-            this.menu.Name = "menu";
-            this.menu.Size = new System.Drawing.Size(721, 25);
-            this.menu.TabIndex = 0;
-            this.menu.Text = "menuStrip1";
-            // 
-            // 文件ToolStripMenuItem
-            // 
-            this.文件ToolStripMenuItem.Name = "文件ToolStripMenuItem";
-            this.文件ToolStripMenuItem.Size = new System.Drawing.Size(44, 21);
-            this.文件ToolStripMenuItem.Text = "文件";
-            // 
-            // 编辑ToolStripMenuItem
-            // 
-            this.编辑ToolStripMenuItem.Name = "编辑ToolStripMenuItem";
-            this.编辑ToolStripMenuItem.Size = new System.Drawing.Size(44, 21);
-            this.编辑ToolStripMenuItem.Text = "编辑";
-            // 
-            // 帮助ToolStripMenuItem
-            // 
-            this.帮助ToolStripMenuItem.Name = "帮助ToolStripMenuItem";
-            this.帮助ToolStripMenuItem.Size = new System.Drawing.Size(44, 21);
-            this.帮助ToolStripMenuItem.Text = "帮助";
-            // 
-            // buildButton
-            // 
-            this.buildButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("buildButton.BackgroundImage")));
-            this.buildButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.buildButton.Location = new System.Drawing.Point(23, 29);
-            this.buildButton.Name = "buildButton";
-            this.buildButton.Size = new System.Drawing.Size(27, 23);
-            this.buildButton.TabIndex = 2;
-            this.buildButton.UseVisualStyleBackColor = true;
-            this.buildButton.Click += new System.EventHandler(this.buildButton_Click);
-            // 
-            // errorListView
-            // 
-            this.errorListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.序号,
-            this.错误描述,
-            this.错误位置详情});
-            this.errorListView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.errorListView.GridLines = true;
-            this.errorListView.Location = new System.Drawing.Point(0, 0);
-            this.errorListView.Name = "errorListView";
-            this.errorListView.Size = new System.Drawing.Size(494, 132);
-            this.errorListView.TabIndex = 0;
-            this.errorListView.UseCompatibleStateImageBehavior = false;
-            this.errorListView.View = System.Windows.Forms.View.Details;
-            // 
-            // 序号
-            // 
-            this.序号.Text = "序号";
-            this.序号.Width = 40;
-            // 
-            // 错误描述
-            // 
-            this.错误描述.Text = "错误描述";
-            this.错误描述.Width = 308;
-            // 
-            // 错误位置详情
-            // 
-            this.错误位置详情.Text = "错误位置详情/变量名";
-            this.错误位置详情.Width = 139;
-            // 
-            // splitContainer1
-            // 
-            this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer1.Location = new System.Drawing.Point(0, 0);
-            this.splitContainer1.Name = "splitContainer1";
-            this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
-            // 
-            // splitContainer1.Panel1
-            // 
-            this.splitContainer1.Panel1.Controls.Add(this.formControl);
-            // 
-            // splitContainer1.Panel2
-            // 
-            this.splitContainer1.Panel2.Controls.Add(this.errorListView);
-            this.splitContainer1.Size = new System.Drawing.Size(494, 425);
-            this.splitContainer1.SplitterDistance = 289;
-            this.splitContainer1.TabIndex = 1;
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -464,6 +563,8 @@
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.MenuPanel.ResumeLayout(false);
             this.MenuPanel.PerformLayout();
+            this.menu.ResumeLayout(false);
+            this.menu.PerformLayout();
             this.splitLeft.Panel1.ResumeLayout(false);
             this.splitLeft.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitLeft)).EndInit();
@@ -482,18 +583,17 @@
             this.splitRight.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitRight)).EndInit();
             this.splitRight.ResumeLayout(false);
+            this.splitContainer1.Panel1.ResumeLayout(false);
+            this.splitContainer1.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
+            this.splitContainer1.ResumeLayout(false);
             this.formControl.ResumeLayout(false);
+            this.closeDwonWin.ResumeLayout(false);
             this.splitRightUp.Panel1.ResumeLayout(false);
             this.splitRightUp.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitRightUp)).EndInit();
             this.splitRightUp.ResumeLayout(false);
             this.userVarMenu.ResumeLayout(false);
-            this.menu.ResumeLayout(false);
-            this.menu.PerformLayout();
-            this.splitContainer1.Panel1.ResumeLayout(false);
-            this.splitContainer1.Panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
-            this.splitContainer1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -534,6 +634,17 @@
         private System.Windows.Forms.ColumnHeader 错误描述;
         private System.Windows.Forms.ColumnHeader 错误位置详情;
         private System.Windows.Forms.SplitContainer splitContainer1;
+        private System.Windows.Forms.ContextMenuStrip closeDwonWin;
+        private System.Windows.Forms.ToolStripMenuItem 关闭窗口ToolStripMenuItem;
+        private System.Windows.Forms.ListView resultListView;
+        private System.Windows.Forms.ColumnHeader columnHeader1;
+        private System.Windows.Forms.ColumnHeader columnHeader6;
+        private System.Windows.Forms.ColumnHeader columnHeader3;
+        private System.Windows.Forms.ColumnHeader columnHeader2;
+        private System.Windows.Forms.ColumnHeader columnHeader4;
+        private System.Windows.Forms.ColumnHeader columnHeader5;
+        private System.Windows.Forms.Button startButton;
+        private MethodFlowControl.Flow_Result flow_Result1;
 
 
 
