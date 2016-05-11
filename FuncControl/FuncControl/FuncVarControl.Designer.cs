@@ -48,6 +48,7 @@
             // 
             // textBox1
             // 
+            this.textBox1.BackColor = System.Drawing.Color.PaleTurquoise;
             this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBox1.Cursor = System.Windows.Forms.Cursors.Default;
             this.textBox1.Location = new System.Drawing.Point(0, 15);
@@ -60,7 +61,7 @@
             // 
             // varName
             // 
-            this.varName.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.varName.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.varName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.varName.Location = new System.Drawing.Point(136, 15);
             this.varName.Name = "varName";
@@ -71,6 +72,7 @@
             // 
             // textBox2
             // 
+            this.textBox2.BackColor = System.Drawing.Color.PaleTurquoise;
             this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBox2.Cursor = System.Windows.Forms.Cursors.Default;
             this.textBox2.Location = new System.Drawing.Point(0, 34);
@@ -83,7 +85,7 @@
             // 
             // varType
             // 
-            this.varType.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.varType.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.varType.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.varType.Location = new System.Drawing.Point(135, 34);
             this.varType.Name = "varType";
@@ -94,6 +96,7 @@
             // 
             // textBox3
             // 
+            this.textBox3.BackColor = System.Drawing.Color.PaleTurquoise;
             this.textBox3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBox3.Cursor = System.Windows.Forms.Cursors.Default;
             this.textBox3.Location = new System.Drawing.Point(0, 54);

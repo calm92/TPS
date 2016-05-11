@@ -33,8 +33,13 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="MethodFlowControl">
+    <Reference Include="MethodFlowControl, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\FlowControl\MethodFlowControl\MethodFlowControl\bin\Debug\MethodFlowControl.dll</HintPath>
+    </Reference>
+    <Reference Include="MethodMeter, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\MeterControl\MethodMeter\MethodMeter\bin\Debug\MethodMeter.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -84,12 +89,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\MeterControl\MethodMeter\MethodMeter\MethodMeter.csproj">
-      <Project>{1914a700-ccb9-48ab-ad48-8aa72ea5f490}</Project>
-      <Name>MethodMeter</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

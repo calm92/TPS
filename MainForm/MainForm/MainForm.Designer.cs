@@ -62,12 +62,12 @@
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.closeDwonWin = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.关闭窗口ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.errorListView = new System.Windows.Forms.ListView();
             this.序号 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.错误描述 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.错误位置详情 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.closeDwonWin = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.关闭窗口ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.splitRightUp = new System.Windows.Forms.SplitContainer();
             this.varPanel = new System.Windows.Forms.Panel();
             this.userVarPanel = new System.Windows.Forms.Panel();
@@ -185,6 +185,7 @@
             // 
             // splitLeft
             // 
+            this.splitLeft.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.splitLeft.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.splitLeft.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitLeft.Location = new System.Drawing.Point(0, 52);
@@ -251,6 +252,7 @@
             // InstruementFlow
             // 
             this.InstruementFlow.AutoScroll = true;
+            this.InstruementFlow.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.InstruementFlow.Dock = System.Windows.Forms.DockStyle.Fill;
             this.InstruementFlow.Location = new System.Drawing.Point(3, 3);
             this.InstruementFlow.Name = "InstruementFlow";
@@ -446,6 +448,20 @@
             this.columnHeader5.Text = "测试项结果";
             this.columnHeader5.Width = 87;
             // 
+            // closeDwonWin
+            // 
+            this.closeDwonWin.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.关闭窗口ToolStripMenuItem});
+            this.closeDwonWin.Name = "closeDwonWin";
+            this.closeDwonWin.Size = new System.Drawing.Size(125, 26);
+            // 
+            // 关闭窗口ToolStripMenuItem
+            // 
+            this.关闭窗口ToolStripMenuItem.Name = "关闭窗口ToolStripMenuItem";
+            this.关闭窗口ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.关闭窗口ToolStripMenuItem.Text = "关闭窗口";
+            this.关闭窗口ToolStripMenuItem.Click += new System.EventHandler(this.关闭窗口ToolStripMenuItem_Click);
+            // 
             // errorListView
             // 
             this.errorListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
@@ -477,20 +493,6 @@
             // 
             this.错误位置详情.Text = "错误位置详情/变量名";
             this.错误位置详情.Width = 145;
-            // 
-            // closeDwonWin
-            // 
-            this.closeDwonWin.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.关闭窗口ToolStripMenuItem});
-            this.closeDwonWin.Name = "closeDwonWin";
-            this.closeDwonWin.Size = new System.Drawing.Size(125, 26);
-            // 
-            // 关闭窗口ToolStripMenuItem
-            // 
-            this.关闭窗口ToolStripMenuItem.Name = "关闭窗口ToolStripMenuItem";
-            this.关闭窗口ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
-            this.关闭窗口ToolStripMenuItem.Text = "关闭窗口";
-            this.关闭窗口ToolStripMenuItem.Click += new System.EventHandler(this.关闭窗口ToolStripMenuItem_Click);
             // 
             // splitRightUp
             // 

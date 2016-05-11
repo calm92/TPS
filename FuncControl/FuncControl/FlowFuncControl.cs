@@ -59,7 +59,7 @@ namespace TpsControl
                 this.Cursor =Cursors.No;
              else
              {
-                 this.Cursor = Cursors.Default;
+                 this.Cursor = Cursors.Arrow;
 
                  if (tabNum < 0)
                  {

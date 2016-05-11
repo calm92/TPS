@@ -25,4 +25,3 @@ E:\TPS\FuncControl\FuncControl\obj\Debug\TpsControl.VarPanel.resources
 E:\TPS\FuncControl\FuncControl\obj\Debug\SetControl.csproj.GenerateResource.Cache
 E:\TPS\FuncControl\FuncControl\obj\Debug\TpsControl.dll
 E:\TPS\FuncControl\FuncControl\obj\Debug\TpsControl.pdb
-E:\TPS\FuncControl\FuncControl\obj\Debug\SetControl.csprojResolveAssemblyReference.cache

@@ -28,26 +28,20 @@ namespace TpsControl
         }
         public void AdjustWidth()
         {
-            int height = textBox1.Height + textBox2.Height + textBox3.Height;
-            if (height < varName.Height + varType.Height + varValue.Height)
-                height = varName.Height + varType.Height + varValue.Height;
-            this.Height = height + 5;
             int parentWidth = this.Parent.Width;
             if(userVarPanel.VerticalScroll.Visible)
                 parentWidth -= SystemInformation.VerticalScrollBarWidth;
             this.Width = parentWidth;
-            int delta = textBox1.Width - this.Width / 2;
-            if (delta <= 5 && delta >= -5)
-                return;
+            
             textBox1.Width = this.Width / 2;
             textBox2.Width = this.Width / 2;
             textBox3.Width = this.Width / 2;
             varName.Width = this.Width - textBox1.Width-2;
             varType.Width = this.Width - textBox2.Width-2;
             varValue.Width = this.Width - textBox3.Width-2;
-            textBox1.Location = new Point(0, 0);
-            textBox2.Location = new Point(0, textBox1.Height);
-            textBox3.Location = new Point(0, textBox1.Height + textBox2.Height);
+            //textBox1.Location = new Point(0, 0);
+            //textBox2.Location = new Point(0, textBox1.Height);
+            //textBox3.Location = new Point(0, textBox1.Height + textBox2.Height);
             varName.Location = new Point(this.Width / 2, textBox1.Location.Y);
             varType.Location = new Point(this.Width / 2, textBox2.Location.Y);
             varValue.Location = new Point(this.Width / 2, textBox3.Location.Y);

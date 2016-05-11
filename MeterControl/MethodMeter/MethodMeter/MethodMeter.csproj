@@ -68,12 +68,6 @@
       <DependentUpon>Meter_Result.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\..\FuncControl\FuncControl\SetControl.csproj">
-      <Project>{9CAFB137-5A17-45B6-A837-09C9AE0E4AB8}</Project>
-      <Name>SetControl</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

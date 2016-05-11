@@ -44,6 +44,7 @@
             // 
             // textBox1
             // 
+            this.textBox1.Font = new System.Drawing.Font("黑体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.textBox1.Location = new System.Drawing.Point(-1, 16);
             this.textBox1.Name = "textBox1";
             this.textBox1.ReadOnly = true;
@@ -64,6 +65,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Controls.Add(this.FuncNameBox);
             this.Controls.Add(this.textBox1);

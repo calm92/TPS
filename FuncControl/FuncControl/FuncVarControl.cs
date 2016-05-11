@@ -33,6 +33,8 @@ namespace TpsControl
         public void AdjustWidth()
         {
             int parentWidth = this.Parent.Width;
+            //if ((this.Parent as Panel).VerticalScroll.Visible)
+            //    parentWidth -= SystemInformation.VerticalScrollBarWidth;
             this.Width = parentWidth;
             textBox1.Width = varName.Width = this.Width / 2;
             textBox2.Width = varType.Width = this.Width / 2;

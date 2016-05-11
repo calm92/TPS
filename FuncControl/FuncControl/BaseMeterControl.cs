@@ -57,9 +57,11 @@ namespace TpsControl
         //使用委托，调用mainform中的画线方法
         public delegate void delePL(Point sP,Point eP); //画线委托
         public delegate void deleRPL(int tabID, Point sP, Point eP);    //重新画线委托
+        public delegate void deleDeleControl(int tabID);    //查找和tabID有关的连线
 
         public delePL printLine;
         public deleRPL RePrintLine;
+        public deleDeleControl deleControl;
         #endregion
 
         public BaseMeterControl()
@@ -286,7 +288,8 @@ namespace TpsControl
                     (m_lastSqurePoint.X + Control.MousePosition.X - m_lastMPoint.X,
                     m_lastSqurePoint.Y + Control.MousePosition.Y - m_lastMPoint.Y);
 
-                
+                if (nextID_local < 0 && preID_local < 0)
+                    return;
                 //移动连接线,通过组件相对于mainPage的位置来计算
                 sPtoMainPage = ePtoMainPage;
                 //计算移动后，组件相对于mainPage的位置
@@ -322,9 +325,9 @@ namespace TpsControl
                 }
                 squre.BorderStyle = BorderStyle.FixedSingle;
 
-                ShowVar();
-
+                ShowVar();                
                 return;
+             
             }
 
             //若使能画框，则记录点击时的ID和position
@@ -492,7 +495,8 @@ namespace TpsControl
          * ***************************************************/
         private void squre_MouseHover(object sender, EventArgs e)
         {
-           
+            if (isEnablePrintSqure == false)
+                return;
             updataLocation();
 
             Point mPoint = squre.Parent.PointToClient(MousePosition);
@@ -593,7 +597,32 @@ namespace TpsControl
             return;
         }
 
-      
+
+        private void 删除组件ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (TabID == 0)
+            {
+                MessageBox.Show("不能删除0号组件");
+                return;
+            }
+            //使控件不可见，不删除
+            meterControl[0][this.TabID].squre.Visible = false;
+            meterControl[0][this.TabID].label1.Visible = false;
+
+            int preID = this.preID_local;
+            int nextID = this.nextID_local;
+            if(preID >=0)
+                meterControl[0][preID].nextID_local = -1;
+            if(nextID >=0)
+                meterControl[0][nextID].preID_local = -1;
+            if(deleControl != null)
+                deleControl(TabID);
+
+        }
+
+       
+
+        
 
     }
 }

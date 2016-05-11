@@ -8,10 +8,10 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using TpsControl;
-using MethodFlowControl;
 using System.Collections;
 using System.Drawing.Drawing2D;
 using MethodMeter;
+using MethodFlowControl;
 
 namespace MainForm
 {
@@ -454,7 +454,7 @@ namespace MainForm
             for (int i = 0; i < count; i++) {
                 BaseMeterControl.meterControl[0][i].printLine = pubPrintLine;
                 BaseMeterControl.meterControl[0][i].RePrintLine = pubRePrintLine;
-
+                BaseMeterControl.meterControl[0][i].deleControl = deleTabID;
             }
                 enableAllControl();
         }
@@ -511,6 +511,14 @@ namespace MainForm
             if(isChange == true)
                 MainPage.Invalidate();
             
+        }
+        private void deleTabID(int tabID) {
+            int count = lineList.Count;
+            for (int i = count-1; i >=0; i--) {
+                if (lineList[i].endTabID == tabID || lineList[i].startTabID == tabID)
+                    lineList.RemoveAt(i);
+            }
+            MainPage.Invalidate();
         }
         private void printLine (Point sPoint, Point ePoint, bool isDele = false){
             Color lineColor = Color.Black;
@@ -576,6 +584,8 @@ namespace MainForm
 
 
         #endregion
+
+       
 
 
 
