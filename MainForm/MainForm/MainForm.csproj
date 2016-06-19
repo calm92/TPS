@@ -33,6 +33,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="DMMFlowControl">
+      <HintPath>..\..\DMMMethod\DMMFlowControl\bin\Release\DMMFlowControl.dll</HintPath>
+    </Reference>
+    <Reference Include="DMMMethod">
+      <HintPath>..\..\DMMMethod\DMMMethod\bin\Debug\DMMMethod.dll</HintPath>
+    </Reference>
     <Reference Include="MethodFlowControl, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\FlowControl\MethodFlowControl\MethodFlowControl\bin\Debug\MethodFlowControl.dll</HintPath>
@@ -40,6 +46,9 @@
     <Reference Include="MethodMeter, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\MeterControl\MethodMeter\MethodMeter\bin\Debug\MethodMeter.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=14.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -53,7 +62,7 @@
     <Reference Include="System.Xml" />
     <Reference Include="TpsControl, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\FuncControl\FuncControl\obj\Debug\TpsControl.dll</HintPath>
+      <HintPath>..\..\FuncControl\FuncControl\bin\Release\TpsControl.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

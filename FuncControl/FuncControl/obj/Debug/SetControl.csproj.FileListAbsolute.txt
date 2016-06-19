@@ -25,3 +25,7 @@ E:\TPS\FuncControl\FuncControl\obj\Debug\TpsControl.VarPanel.resources
 E:\TPS\FuncControl\FuncControl\obj\Debug\SetControl.csproj.GenerateResource.Cache
 E:\TPS\FuncControl\FuncControl\obj\Debug\TpsControl.dll
 E:\TPS\FuncControl\FuncControl\obj\Debug\TpsControl.pdb
+E:\TPS\FuncControl\FuncControl\bin\Debug\Ag3446x_2_08.dll
+E:\TPS\FuncControl\FuncControl\bin\Debug\Ag3446x_2_08.xml
+E:\TPS\FuncControl\FuncControl\obj\Debug\SetControl.csprojResolveAssemblyReference.cache
+E:\TPS\FuncControl\FuncControl\obj\Debug\TpsControl.FetchDigForm.resources

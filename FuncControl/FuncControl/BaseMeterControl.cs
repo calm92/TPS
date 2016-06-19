@@ -34,6 +34,7 @@ namespace TpsControl
         static public Hashtable intTable = new Hashtable();
         static public Hashtable doubleTable = new Hashtable();
         static public Hashtable stringTable = new Hashtable();
+        static public Hashtable instTable = new Hashtable();
 
         static public Color FormBackColor = Color.White;
        

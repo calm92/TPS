@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DMMMethod", "DMMMethod\DMMMethod.csproj", "{6B38C1F9-A2C1-4134-A8AB-00BFB420EA6B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DMMFlowControl", "DMMFlowControl\DMMFlowControl.csproj", "{4C8154D3-8856-481A-8081-736F92B1FC22}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6B38C1F9-A2C1-4134-A8AB-00BFB420EA6B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6B38C1F9-A2C1-4134-A8AB-00BFB420EA6B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6B38C1F9-A2C1-4134-A8AB-00BFB420EA6B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6B38C1F9-A2C1-4134-A8AB-00BFB420EA6B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4C8154D3-8856-481A-8081-736F92B1FC22}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4C8154D3-8856-481A-8081-736F92B1FC22}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4C8154D3-8856-481A-8081-736F92B1FC22}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4C8154D3-8856-481A-8081-736F92B1FC22}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

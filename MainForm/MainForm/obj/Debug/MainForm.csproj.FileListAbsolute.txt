@@ -25,3 +25,9 @@ E:\TPS\MainForm\MainForm\obj\Debug\MainForm.Properties.Resources.resources
 E:\TPS\MainForm\MainForm\obj\Debug\MainForm.csproj.GenerateResource.Cache
 E:\TPS\MainForm\MainForm\obj\Debug\MainForm.exe
 E:\TPS\MainForm\MainForm\obj\Debug\MainForm.pdb
+E:\TPS\MainForm\MainForm\bin\Debug\DMMFlowControl.dll
+E:\TPS\MainForm\MainForm\bin\Debug\DMMMethod.dll
+E:\TPS\MainForm\MainForm\bin\Debug\Ag3446x_2_08.dll
+E:\TPS\MainForm\MainForm\bin\Debug\DMMFlowControl.pdb
+E:\TPS\MainForm\MainForm\bin\Debug\DMMMethod.pdb
+E:\TPS\MainForm\MainForm\bin\Debug\Ag3446x_2_08.xml

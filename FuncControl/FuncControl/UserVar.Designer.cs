@@ -45,11 +45,11 @@
             // varValue
             // 
             this.varValue.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.varValue.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.varValue.Font = new System.Drawing.Font("宋体", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.varValue.Location = new System.Drawing.Point(180, 69);
             this.varValue.Margin = new System.Windows.Forms.Padding(4);
             this.varValue.Name = "varValue";
-            this.varValue.Size = new System.Drawing.Size(179, 26);
+            this.varValue.Size = new System.Drawing.Size(179, 25);
             this.varValue.TabIndex = 14;
             // 
             // textBox3
@@ -58,12 +58,12 @@
             this.textBox3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBox3.ContextMenuStrip = this.contextMenuStrip1;
             this.textBox3.Cursor = System.Windows.Forms.Cursors.Default;
-            this.textBox3.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.textBox3.Font = new System.Drawing.Font("宋体", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.textBox3.Location = new System.Drawing.Point(0, 69);
             this.textBox3.Margin = new System.Windows.Forms.Padding(4);
             this.textBox3.Name = "textBox3";
             this.textBox3.ReadOnly = true;
-            this.textBox3.Size = new System.Drawing.Size(181, 26);
+            this.textBox3.Size = new System.Drawing.Size(181, 25);
             this.textBox3.TabIndex = 0;
             this.textBox3.TabStop = false;
             this.textBox3.Text = "变量大小:";
@@ -97,12 +97,12 @@
             this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBox2.ContextMenuStrip = this.contextMenuStrip1;
             this.textBox2.Cursor = System.Windows.Forms.Cursors.Default;
-            this.textBox2.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.textBox2.Font = new System.Drawing.Font("宋体", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.textBox2.Location = new System.Drawing.Point(0, 43);
             this.textBox2.Margin = new System.Windows.Forms.Padding(4);
             this.textBox2.Name = "textBox2";
             this.textBox2.ReadOnly = true;
-            this.textBox2.Size = new System.Drawing.Size(181, 26);
+            this.textBox2.Size = new System.Drawing.Size(181, 25);
             this.textBox2.TabIndex = 0;
             this.textBox2.TabStop = false;
             this.textBox2.Text = "变量类型:";
@@ -114,12 +114,12 @@
             this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBox1.ContextMenuStrip = this.contextMenuStrip1;
             this.textBox1.Cursor = System.Windows.Forms.Cursors.Default;
-            this.textBox1.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.textBox1.Font = new System.Drawing.Font("宋体", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.textBox1.Location = new System.Drawing.Point(0, 18);
             this.textBox1.Margin = new System.Windows.Forms.Padding(4);
             this.textBox1.Name = "textBox1";
             this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(181, 26);
+            this.textBox1.Size = new System.Drawing.Size(181, 25);
             this.textBox1.TabIndex = 0;
             this.textBox1.TabStop = false;
             this.textBox1.Text = "变量名称:";
@@ -129,7 +129,7 @@
             // 
             this.varType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.varType.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.varType.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.varType.Font = new System.Drawing.Font("宋体", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.varType.FormattingEnabled = true;
             this.varType.Items.AddRange(new object[] {
             "int",
@@ -138,25 +138,26 @@
             this.varType.Location = new System.Drawing.Point(180, 45);
             this.varType.Margin = new System.Windows.Forms.Padding(4);
             this.varType.Name = "varType";
-            this.varType.Size = new System.Drawing.Size(179, 24);
+            this.varType.Size = new System.Drawing.Size(179, 23);
             this.varType.TabIndex = 15;
             // 
             // varName
             // 
             this.varName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.varName.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.varName.Font = new System.Drawing.Font("宋体", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.varName.Location = new System.Drawing.Point(180, 18);
             this.varName.Margin = new System.Windows.Forms.Padding(4);
             this.varName.Name = "varName";
-            this.varName.Size = new System.Drawing.Size(179, 26);
+            this.varName.Size = new System.Drawing.Size(179, 25);
             this.varName.TabIndex = 16;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("宋体", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label1.Location = new System.Drawing.Point(0, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(120, 16);
+            this.label1.Size = new System.Drawing.Size(112, 15);
             this.label1.TabIndex = 17;
             this.label1.Text = "用户自定义参数";
             this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;

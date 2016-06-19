@@ -12,7 +12,9 @@ using System.Collections;
 using System.Drawing.Drawing2D;
 using MethodMeter;
 using MethodFlowControl;
-
+using DMMFlowControl;
+using DMMMethod;
+using Excel = Microsoft.Office.Interop.Excel;
 namespace MainForm
 {
     public partial class MainForm : Form
@@ -20,7 +22,7 @@ namespace MainForm
         public MainForm()
         {
             InitializeComponent();
-           
+            
         }
 
         /**********************
@@ -50,7 +52,17 @@ namespace MainForm
             SetScope.LabelText = "SetScope";
             SetScope.ButtonText = "SCOPE";
 
-            //Test
+            //DMMInit
+            DMMInit = new DMM_Init_Flow();
+            DMMFetchVal = new DMMFetchVal_Flow();
+            DMMSetup = new DMMSetup_Flow();
+            DMMFetchDig = new DMMFetchDig_Flow();
+
+            DMMFlow.Controls.Add(DMMInit);
+            DMMFlow.Controls.Add(DMMSetup);
+            DMMFlow.Controls.Add(DMMFetchVal);
+            DMMFlow.Controls.Add(DMMFetchDig);
+
             
         }
 
@@ -78,7 +90,12 @@ namespace MainForm
         private Point startLocation  = new Point(80,80);
         private FuncControl.BaseSetControl SetDMM;
         private FuncControl.BaseSetControl SetScope;
+        private DMM_Init_Flow DMMInit;
+        private DMMFetchVal_Flow DMMFetchVal;
+        private DMMSetup_Flow DMMSetup;
+        private DMMFetchDig_Flow DMMFetchDig;
         private int formCount = 0;  
+        
         
         //是否画线
         private bool isPrintLine = false;
@@ -250,6 +267,8 @@ namespace MainForm
             BaseMeterControl.doubleTable.Clear();
             BaseMeterControl.intTable.Clear();
             BaseMeterControl.stringTable.Clear();
+            BaseMeterControl.instTable.Clear();
+            
             return;
         }
 
@@ -326,6 +345,8 @@ namespace MainForm
             errorListView.Items.Clear();
             resultListView.Items.Clear();
             errorListView.BringToFront();
+            errorListView.Visible = true;
+            resultListView.Visible = false;
             rebuildVarTable();  //载入用户变量
             checkVar();         //检查控件的参数
 
@@ -334,10 +355,65 @@ namespace MainForm
         {
             errorListView.Items.Clear();
             resultListView.Items.Clear();
+            errorListView.Visible = false;
+            resultListView.Visible = false;
             splitContainer1.Panel2Collapsed = true;
         }
 
-         private void addErrorItem(int no, string errorInfo, string errorID) {
+        #region  输出excel
+        private void 输出为excleToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ListView listview;
+            
+            if (resultListView.Visible == true)
+                listview = resultListView;
+            else
+                listview = errorListView;
+
+            Excel.Application excel = new Excel.Application();
+            if (excel == null) {
+                MessageBox.Show("无法建立excel");
+                return;
+            }
+
+            int rowNum = listview.Items.Count;
+            int columnNum = listview.Items[0].SubItems.Count;
+            int rowIndex = 1;
+            int columnIndex = 0;
+           
+            excel.DefaultFilePath = "";
+            excel.DisplayAlerts = true;
+            excel.SheetsInNewWorkbook = 1;
+            Excel.Workbook xlbook = excel.Workbooks.Add(true);
+            
+            //将ListView的列名导入第一行
+            foreach (ColumnHeader dc in listview.Columns) {
+                columnIndex++;
+                excel.Cells[rowIndex, columnIndex] = dc.Text;
+            }
+
+              //将ListView中的数据导入Excel中
+             for (int i = 0; i < rowNum; i++){
+            
+                rowIndex++;
+                columnIndex = 0;
+                for (int j = 0; j < columnNum; j++)
+                {
+                    columnIndex++;
+                    //注意这个在导出的时候加了“\t” 的目的就是避免导出的数据显示为科学计数法。可以放在每行的首尾。
+                    excel.Cells[rowIndex, columnIndex] = Convert.ToString(listview.Items[i].SubItems[j].Text) + "\t";
+                    
+                }
+            }
+            //调整列宽
+            excel.Columns.AutoFit();
+            excel.Visible = true;
+             
+    }
+     
+
+        #endregion
+        private void addErrorItem(int no, string errorInfo, string errorID) {
             ListViewItem item = new ListViewItem();
             item.Text = no.ToString();
             item.SubItems.Add(errorInfo);
@@ -347,13 +423,15 @@ namespace MainForm
         private void checkVarIter(ref VarInfo varInfo, int index){
             if (varInfo.isInput == true) {
                  //输入参数没有
-                 if (varInfo.sVar == "")
+                 if (varInfo.sVar == ""){
                     addErrorItem(errorNo++, "输入未给定",
                               "GraphID:" + index.ToString() + "  变量：" + varInfo.sName);
-                 
+                     return;
+                 }
+            }
                  //参数错误
-                        
-                 else if (varInfo.sType == "int") {
+                  
+                  if (varInfo.sType == "int") {
                       if (varInfo.sVar == "")
                             return;
                       if(BaseMeterControl.intTable.Contains(varInfo.sVar) == true)
@@ -396,7 +474,7 @@ namespace MainForm
                         addErrorItem(errorNo++, "组件参数不符合",
                                "GraphID:" + index.ToString() + "  变量：" + varInfo.sName);
                  }
-             }
+             
         }
         private void checkVar() {
             List<BaseMeterControl> controlList = BaseMeterControl.meterControl[0];
@@ -409,7 +487,7 @@ namespace MainForm
                     continue;
                 }
                 int count = varList.Count();
-                //输入参数到varInfo中
+                //参数到varInfo中
                 for (int i = 0; i < count; i++)
                 {
                     BaseMeterControl.meterControl[0][index].varInfoList[i].sVar = varList[i];
@@ -426,6 +504,9 @@ namespace MainForm
                 }
 
             }
+
+
+
 
         #endregion
 
@@ -571,6 +652,8 @@ namespace MainForm
             errorListView.Items.Clear();
             resultListView.Items.Clear();
             resultListView.BringToFront();
+            resultListView.Visible = true;
+            errorListView.Visible = false;
 
             //运行函数
             int index = BaseMeterControl.meterControl[0][0].nextID_local;
@@ -584,6 +667,8 @@ namespace MainForm
 
 
         #endregion
+
+      
 
        
 
@@ -618,3 +703,4 @@ namespace MainForm
 
     
 }
+

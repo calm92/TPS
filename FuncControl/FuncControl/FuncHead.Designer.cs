@@ -36,29 +36,31 @@
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("宋体", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label1.Location = new System.Drawing.Point(3, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(53, 12);
+            this.label1.Size = new System.Drawing.Size(71, 15);
             this.label1.TabIndex = 0;
             this.label1.Text = "GraphID:";
             // 
             // textBox1
             // 
-            this.textBox1.Font = new System.Drawing.Font("黑体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.textBox1.Font = new System.Drawing.Font("宋体", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.textBox1.Location = new System.Drawing.Point(-1, 16);
             this.textBox1.Name = "textBox1";
             this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(106, 21);
+            this.textBox1.Size = new System.Drawing.Size(106, 25);
             this.textBox1.TabIndex = 0;
             this.textBox1.Text = "函数名称:";
             // 
             // FuncNameBox
             // 
             this.FuncNameBox.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.FuncNameBox.Font = new System.Drawing.Font("宋体", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.FuncNameBox.Location = new System.Drawing.Point(104, 16);
             this.FuncNameBox.Name = "FuncNameBox";
             this.FuncNameBox.ReadOnly = true;
-            this.FuncNameBox.Size = new System.Drawing.Size(103, 21);
+            this.FuncNameBox.Size = new System.Drawing.Size(103, 25);
             this.FuncNameBox.TabIndex = 0;
             // 
             // FuncHead

@@ -75,6 +75,7 @@
             this.插入变量ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.DrawLineTip = new System.Windows.Forms.ToolTip(this.components);
             this.buildTip = new System.Windows.Forms.ToolTip(this.components);
+            this.输出为excleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MenuPanel.SuspendLayout();
             this.menu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitLeft)).BeginInit();
@@ -199,7 +200,7 @@
             // 
             this.splitLeft.Panel2.Controls.Add(this.splitRight);
             this.splitLeft.Size = new System.Drawing.Size(721, 427);
-            this.splitLeft.SplitterDistance = 118;
+            this.splitLeft.SplitterDistance = 135;
             this.splitLeft.TabIndex = 1;
             this.splitLeft.SplitterMoved += new System.Windows.Forms.SplitterEventHandler(this.splitLeft_SplitterMoved);
             // 
@@ -218,7 +219,7 @@
             // splitLeftUp.Panel2
             // 
             this.splitLeftUp.Panel2.Controls.Add(this.listBox1);
-            this.splitLeftUp.Size = new System.Drawing.Size(118, 427);
+            this.splitLeftUp.Size = new System.Drawing.Size(135, 427);
             this.splitLeftUp.SplitterDistance = 221;
             this.splitLeftUp.TabIndex = 0;
             // 
@@ -233,7 +234,7 @@
             this.ControlTab.Multiline = true;
             this.ControlTab.Name = "ControlTab";
             this.ControlTab.SelectedIndex = 0;
-            this.ControlTab.Size = new System.Drawing.Size(116, 219);
+            this.ControlTab.Size = new System.Drawing.Size(133, 219);
             this.ControlTab.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.ControlTab.TabIndex = 0;
             this.ControlTab.Selected += new System.Windows.Forms.TabControlEventHandler(this.ControlTab_Selected);
@@ -245,7 +246,7 @@
             this.InstrumentPage.Location = new System.Drawing.Point(4, 73);
             this.InstrumentPage.Name = "InstrumentPage";
             this.InstrumentPage.Padding = new System.Windows.Forms.Padding(3);
-            this.InstrumentPage.Size = new System.Drawing.Size(108, 142);
+            this.InstrumentPage.Size = new System.Drawing.Size(125, 142);
             this.InstrumentPage.TabIndex = 0;
             this.InstrumentPage.Text = "仪器仪表";
             // 
@@ -256,7 +257,7 @@
             this.InstruementFlow.Dock = System.Windows.Forms.DockStyle.Fill;
             this.InstruementFlow.Location = new System.Drawing.Point(3, 3);
             this.InstruementFlow.Name = "InstruementFlow";
-            this.InstruementFlow.Size = new System.Drawing.Size(102, 136);
+            this.InstruementFlow.Size = new System.Drawing.Size(119, 136);
             this.InstruementFlow.TabIndex = 0;
             // 
             // MethodPage
@@ -341,7 +342,7 @@
             "Main"});
             this.listBox1.Location = new System.Drawing.Point(0, 0);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(116, 200);
+            this.listBox1.Size = new System.Drawing.Size(133, 200);
             this.listBox1.TabIndex = 0;
             // 
             // splitRight
@@ -357,8 +358,8 @@
             // splitRight.Panel2
             // 
             this.splitRight.Panel2.Controls.Add(this.splitRightUp);
-            this.splitRight.Size = new System.Drawing.Size(597, 425);
-            this.splitRight.SplitterDistance = 494;
+            this.splitRight.Size = new System.Drawing.Size(580, 425);
+            this.splitRight.SplitterDistance = 459;
             this.splitRight.TabIndex = 0;
             // 
             // splitContainer1
@@ -376,7 +377,7 @@
             // 
             this.splitContainer1.Panel2.Controls.Add(this.resultListView);
             this.splitContainer1.Panel2.Controls.Add(this.errorListView);
-            this.splitContainer1.Size = new System.Drawing.Size(494, 425);
+            this.splitContainer1.Size = new System.Drawing.Size(459, 425);
             this.splitContainer1.SplitterDistance = 289;
             this.splitContainer1.TabIndex = 1;
             // 
@@ -387,7 +388,7 @@
             this.formControl.Location = new System.Drawing.Point(0, 0);
             this.formControl.Name = "formControl";
             this.formControl.SelectedIndex = 0;
-            this.formControl.Size = new System.Drawing.Size(494, 289);
+            this.formControl.Size = new System.Drawing.Size(459, 289);
             this.formControl.TabIndex = 0;
             // 
             // MainPage
@@ -396,7 +397,7 @@
             this.MainPage.Location = new System.Drawing.Point(4, 22);
             this.MainPage.Name = "MainPage";
             this.MainPage.Padding = new System.Windows.Forms.Padding(3);
-            this.MainPage.Size = new System.Drawing.Size(486, 263);
+            this.MainPage.Size = new System.Drawing.Size(451, 263);
             this.MainPage.TabIndex = 1;
             this.MainPage.Text = "Main";
             this.MainPage.UseVisualStyleBackColor = true;
@@ -413,11 +414,12 @@
             this.columnHeader5});
             this.resultListView.ContextMenuStrip = this.closeDwonWin;
             this.resultListView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.resultListView.Font = new System.Drawing.Font("宋体", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.resultListView.FullRowSelect = true;
             this.resultListView.GridLines = true;
             this.resultListView.Location = new System.Drawing.Point(0, 0);
             this.resultListView.Name = "resultListView";
-            this.resultListView.Size = new System.Drawing.Size(494, 132);
+            this.resultListView.Size = new System.Drawing.Size(459, 132);
             this.resultListView.TabIndex = 1;
             this.resultListView.UseCompatibleStateImageBehavior = false;
             this.resultListView.View = System.Windows.Forms.View.Details;
@@ -451,9 +453,10 @@
             // closeDwonWin
             // 
             this.closeDwonWin.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.关闭窗口ToolStripMenuItem});
+            this.关闭窗口ToolStripMenuItem,
+            this.输出为excleToolStripMenuItem});
             this.closeDwonWin.Name = "closeDwonWin";
-            this.closeDwonWin.Size = new System.Drawing.Size(125, 26);
+            this.closeDwonWin.Size = new System.Drawing.Size(153, 70);
             // 
             // 关闭窗口ToolStripMenuItem
             // 
@@ -470,11 +473,12 @@
             this.错误位置详情});
             this.errorListView.ContextMenuStrip = this.closeDwonWin;
             this.errorListView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.errorListView.Font = new System.Drawing.Font("宋体", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.errorListView.FullRowSelect = true;
             this.errorListView.GridLines = true;
             this.errorListView.Location = new System.Drawing.Point(0, 0);
             this.errorListView.Name = "errorListView";
-            this.errorListView.Size = new System.Drawing.Size(494, 132);
+            this.errorListView.Size = new System.Drawing.Size(459, 132);
             this.errorListView.TabIndex = 0;
             this.errorListView.UseCompatibleStateImageBehavior = false;
             this.errorListView.View = System.Windows.Forms.View.Details;
@@ -482,17 +486,16 @@
             // 序号
             // 
             this.序号.Text = "序号";
-            this.序号.Width = 40;
             // 
             // 错误描述
             // 
             this.错误描述.Text = "错误描述";
-            this.错误描述.Width = 308;
+            this.错误描述.Width = 500;
             // 
             // 错误位置详情
             // 
             this.错误位置详情.Text = "错误位置详情/变量名";
-            this.错误位置详情.Width = 145;
+            this.错误位置详情.Width = 300;
             // 
             // splitRightUp
             // 
@@ -509,7 +512,7 @@
             // splitRightUp.Panel2
             // 
             this.splitRightUp.Panel2.Controls.Add(this.userVarPanel);
-            this.splitRightUp.Size = new System.Drawing.Size(99, 425);
+            this.splitRightUp.Size = new System.Drawing.Size(117, 425);
             this.splitRightUp.SplitterDistance = 137;
             this.splitRightUp.TabIndex = 0;
             // 
@@ -521,7 +524,7 @@
             this.varPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.varPanel.Location = new System.Drawing.Point(0, 0);
             this.varPanel.Name = "varPanel";
-            this.varPanel.Size = new System.Drawing.Size(97, 135);
+            this.varPanel.Size = new System.Drawing.Size(115, 135);
             this.varPanel.TabIndex = 0;
             this.varPanel.SizeChanged += new System.EventHandler(this.varPanel_SizeChanged);
             // 
@@ -534,7 +537,7 @@
             this.userVarPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.userVarPanel.Location = new System.Drawing.Point(0, 0);
             this.userVarPanel.Name = "userVarPanel";
-            this.userVarPanel.Size = new System.Drawing.Size(97, 282);
+            this.userVarPanel.Size = new System.Drawing.Size(115, 282);
             this.userVarPanel.TabIndex = 1;
             this.userVarPanel.SizeChanged += new System.EventHandler(this.userVarPanel_SizeChanged);
             // 
@@ -551,6 +554,13 @@
             this.插入变量ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.插入变量ToolStripMenuItem.Text = "插入变量";
             this.插入变量ToolStripMenuItem.Click += new System.EventHandler(this.插入变量ToolStripMenuItem_Click);
+            // 
+            // 输出为excleToolStripMenuItem
+            // 
+            this.输出为excleToolStripMenuItem.Name = "输出为excleToolStripMenuItem";
+            this.输出为excleToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.输出为excleToolStripMenuItem.Text = "输出为excle";
+            this.输出为excleToolStripMenuItem.Click += new System.EventHandler(this.输出为excleToolStripMenuItem_Click);
             // 
             // MainForm
             // 
@@ -647,6 +657,7 @@
         private System.Windows.Forms.ColumnHeader columnHeader5;
         private System.Windows.Forms.Button startButton;
         private MethodFlowControl.Flow_Result flow_Result1;
+        private System.Windows.Forms.ToolStripMenuItem 输出为excleToolStripMenuItem;
 
 
 
