@@ -1,6 +1,6 @@
 ﻿namespace MethodMeter
 {
-    partial class Meter_Add
+    partial class Meter_MessBox
     {
         /// <summary>
         /// 必需的设计器变量。
@@ -30,23 +30,11 @@
         {
             this.SuspendLayout();
             // 
-            // squre
-            // 
-            this.squre.Text = "Meth";
-            // 
-            // label1
-            // 
-            this.label1.Location = new System.Drawing.Point(27, 61);
-            this.label1.Size = new System.Drawing.Size(23, 12);
-            this.label1.Text = "ADD";
-            // 
-            // Meter_Add
+            // Meter_MessBox
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
-            this.labelName = "ADD";
-            this.Name = "Meter_Add";
-            this.Size = new System.Drawing.Size(74, 77);
-            this.squreName = "Meth";
+            this.Name = "Meter_MessBox";
+            this.Load += new System.EventHandler(this.showMessage_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -40,11 +40,18 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
-    <Reference Include="TpsControl">
-      <HintPath>..\..\FuncControl\FuncControl\bin\Release\TpsControl.dll</HintPath>
+    <Reference Include="TpsControl, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\FuncControl\FuncControl\bin\Debug\TpsControl.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DMMClose_Flow.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DMMClose_Flow.Designer.cs">
+      <DependentUpon>DMMClose_Flow.cs</DependentUpon>
+    </Compile>
     <Compile Include="DMMFetchDig_Flow.cs">
       <SubType>UserControl</SubType>
     </Compile>

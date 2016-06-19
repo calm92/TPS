@@ -1,6 +1,6 @@
-﻿namespace MethodMeter
+﻿namespace MethodFlowControl
 {
-    partial class Meter_Add
+    partial class Flow_MessBox
     {
         /// <summary>
         /// 必需的设计器变量。
@@ -28,28 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.SuspendLayout();
-            // 
-            // squre
-            // 
-            this.squre.Text = "Meth";
-            // 
-            // label1
-            // 
-            this.label1.Location = new System.Drawing.Point(27, 61);
-            this.label1.Size = new System.Drawing.Size(23, 12);
-            this.label1.Text = "ADD";
-            // 
-            // Meter_Add
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
-            this.labelName = "ADD";
-            this.Name = "Meter_Add";
-            this.Size = new System.Drawing.Size(74, 77);
-            this.squreName = "Meth";
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+            this.components = new System.ComponentModel.Container();
         }
 
         #endregion

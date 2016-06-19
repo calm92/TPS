@@ -57,12 +57,13 @@ namespace MainForm
             DMMFetchVal = new DMMFetchVal_Flow();
             DMMSetup = new DMMSetup_Flow();
             DMMFetchDig = new DMMFetchDig_Flow();
+            DMMClose = new DMMClose_Flow();
 
             DMMFlow.Controls.Add(DMMInit);
             DMMFlow.Controls.Add(DMMSetup);
             DMMFlow.Controls.Add(DMMFetchVal);
             DMMFlow.Controls.Add(DMMFetchDig);
-
+            DMMFlow.Controls.Add(DMMClose);
             
         }
 
@@ -94,6 +95,7 @@ namespace MainForm
         private DMMFetchVal_Flow DMMFetchVal;
         private DMMSetup_Flow DMMSetup;
         private DMMFetchDig_Flow DMMFetchDig;
+        private DMMClose_Flow DMMClose;
         private int formCount = 0;  
         
         
@@ -264,11 +266,11 @@ namespace MainForm
         #region 编译模块
         //清空var table
         private void clearVarTable() {
-            BaseMeterControl.doubleTable.Clear();
-            BaseMeterControl.intTable.Clear();
-            BaseMeterControl.stringTable.Clear();
-            BaseMeterControl.instTable.Clear();
-            
+            BaseMeterControl.doubleTable = new Hashtable();
+            BaseMeterControl.intTable = new Hashtable();
+            BaseMeterControl.stringTable = new Hashtable();
+            BaseMeterControl.instTable = new Hashtable();
+
             return;
         }
 
@@ -436,6 +438,13 @@ namespace MainForm
                             return;
                       if(BaseMeterControl.intTable.Contains(varInfo.sVar) == true)
                             return;
+                      if (varInfo.isInput == false && varInfo.sVar != "")
+                      {
+                          addErrorItem(errorNo++, "输出参数错误",
+                                "GraphID:" + index.ToString() + "  变量：" + varInfo.sName);
+                          return;
+                      }
+
                       int value = 0;
                       bool isTranslate = int.TryParse(varInfo.sVar, out value);
                       if (isTranslate)
@@ -450,6 +459,12 @@ namespace MainForm
                         return;
                     if(BaseMeterControl.doubleTable.Contains(varInfo.sVar) == true)
                         return;
+                    if (varInfo.isInput == false && varInfo.sVar != "")
+                    {
+                        addErrorItem(errorNo++, "输出参数错误",
+                              "GraphID:" + index.ToString() + "  变量：" + varInfo.sName);
+                        return;
+                    }
                     double value = 0.0;
                     bool isTranslate = double.TryParse(varInfo.sVar, out value);
                      if(isTranslate)
@@ -463,7 +478,11 @@ namespace MainForm
                         return;
                     else if (BaseMeterControl.stringTable.Contains(varInfo.sVar) == true)
                         return;
-
+                    else if (varInfo.isInput == false && varInfo.sVar!= "")
+                    {
+                        addErrorItem(errorNo++, "输出参数错误",
+                              "GraphID:" + index.ToString() + "  变量：" + varInfo.sName);
+                    }
                     else if ( varInfo.sVar.EndsWith("\"") && varInfo.sVar.StartsWith("\""))
                 {
                     varInfo.sVar = varInfo.sVar.Substring(1, varInfo.sVar.Length - 2);
@@ -495,8 +514,7 @@ namespace MainForm
                 //检查参数是否符合
                 for (int i = 0; i < count; i++) {
                     VarInfo varinfo =BaseMeterControl.meterControl[0][index].varInfoList[i];         
-                    checkVarIter(
-                                ref varinfo, index);
+                    checkVarIter(ref varinfo, index);
                     //需要更新string 所以需要重新赋值
                     BaseMeterControl.meterControl[0][index].varInfoList[i] = varinfo;
                     }
@@ -661,6 +679,7 @@ namespace MainForm
                 BaseMeterControl.meterControl[0][index].function();
                 index = BaseMeterControl.meterControl[0][index].nextID_local;
             }
+            MessageBox.Show("所有测试已完成，测试结果能够保存为excel");
             return;
 
         }

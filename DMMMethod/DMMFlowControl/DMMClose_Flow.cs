@@ -6,22 +6,21 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using TpsControl;
-using MethodMeter;
+using DMMMethod;
 
-namespace MethodFlowControl
+namespace DMMFlowControl
 {
-    public partial class Flow_Result : TpsControl.FlowFuncControl
+    public partial class DMMClose_Flow : TpsControl.FlowFuncControl
     {
-        public Flow_Result()
+        public DMMClose_Flow()
         {
             InitializeComponent();
             nameInit();
         }
-
         private void nameInit()
         {
-            this.LabelText = "ShowResult";
-            this.ButtonText = "PR";
+            this.LabelText = "Close";
+            this.ButtonText = "DMM";
         }
 
         protected override void buildMeterControl(out BaseMeterControl meterControl)
@@ -29,7 +28,7 @@ namespace MethodFlowControl
             //新建对应的meterControl，并且把新建控件加入meterControl中。
             int graphID = FlowFuncControl.FormControl.SelectedIndex;
             int tabID = BaseMeterControl.meterControl[FlowFuncControl.FormControl.SelectedIndex].Count;
-            meterControl = new Meter_Result(graphID, tabID);
+            meterControl = new DMMClose_Meter(graphID, tabID);
             return;
         }
     }

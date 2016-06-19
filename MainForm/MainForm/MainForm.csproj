@@ -33,8 +33,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="DMMFlowControl">
-      <HintPath>..\..\DMMMethod\DMMFlowControl\bin\Release\DMMFlowControl.dll</HintPath>
+    <Reference Include="DMMFlowControl, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\DMMMethod\DMMFlowControl\bin\Debug\DMMFlowControl.dll</HintPath>
     </Reference>
     <Reference Include="DMMMethod">
       <HintPath>..\..\DMMMethod\DMMMethod\bin\Debug\DMMMethod.dll</HintPath>

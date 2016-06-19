@@ -32,6 +32,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Ag3446x_2_08, Version=0.0.0.0, Culture=neutral, PublicKeyToken=344b812ea93ad2d2, processorArchitecture=MSIL" />
     <Reference Include="MethodMeter">
       <HintPath>..\..\..\MeterControl\MethodMeter\MethodMeter\bin\Debug\MethodMeter.dll</HintPath>
     </Reference>
@@ -44,9 +45,8 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
-    <Reference Include="TpsControl, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\FuncControl\FuncControl\obj\Debug\TpsControl.dll</HintPath>
+    <Reference Include="TpsControl">
+      <HintPath>..\..\..\FuncControl\FuncControl\bin\Debug\TpsControl.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -62,6 +62,12 @@
     </Compile>
     <Compile Include="Flow_Add.Designer.cs">
       <DependentUpon>Flow_Add.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Flow_MessBox.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Flow_MessBox.Designer.cs">
+      <DependentUpon>Flow_MessBox.cs</DependentUpon>
     </Compile>
     <Service Include="{94E38DFF-614B-4cbd-B67C-F211BB35CE8B}" />
   </ItemGroup>

@@ -45,8 +45,6 @@
             this.InstruementFlow = new System.Windows.Forms.FlowLayoutPanel();
             this.MethodPage = new System.Windows.Forms.TabPage();
             this.MethodFlow = new System.Windows.Forms.FlowLayoutPanel();
-            this.flow_Result1 = new MethodFlowControl.Flow_Result();
-            this.flow_Add1 = new MethodFlowControl.Flow_Add();
             this.HidePage = new System.Windows.Forms.TabPage();
             this.DMMFlow = new System.Windows.Forms.FlowLayoutPanel();
             this.ScopeFlow = new System.Windows.Forms.FlowLayoutPanel();
@@ -64,6 +62,7 @@
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.closeDwonWin = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.关闭窗口ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.输出为excleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.errorListView = new System.Windows.Forms.ListView();
             this.序号 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.错误描述 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -75,7 +74,9 @@
             this.插入变量ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.DrawLineTip = new System.Windows.Forms.ToolTip(this.components);
             this.buildTip = new System.Windows.Forms.ToolTip(this.components);
-            this.输出为excleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.flow_Result1 = new MethodFlowControl.Flow_Result();
+            this.flow_Add1 = new MethodFlowControl.Flow_Add();
+            this.flow_MessBox1 = new MethodFlowControl.Flow_MessBox();
             this.MenuPanel.SuspendLayout();
             this.menu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitLeft)).BeginInit();
@@ -200,7 +201,7 @@
             // 
             this.splitLeft.Panel2.Controls.Add(this.splitRight);
             this.splitLeft.Size = new System.Drawing.Size(721, 427);
-            this.splitLeft.SplitterDistance = 135;
+            this.splitLeft.SplitterDistance = 156;
             this.splitLeft.TabIndex = 1;
             this.splitLeft.SplitterMoved += new System.Windows.Forms.SplitterEventHandler(this.splitLeft_SplitterMoved);
             // 
@@ -219,7 +220,7 @@
             // splitLeftUp.Panel2
             // 
             this.splitLeftUp.Panel2.Controls.Add(this.listBox1);
-            this.splitLeftUp.Size = new System.Drawing.Size(135, 427);
+            this.splitLeftUp.Size = new System.Drawing.Size(156, 427);
             this.splitLeftUp.SplitterDistance = 221;
             this.splitLeftUp.TabIndex = 0;
             // 
@@ -234,7 +235,7 @@
             this.ControlTab.Multiline = true;
             this.ControlTab.Name = "ControlTab";
             this.ControlTab.SelectedIndex = 0;
-            this.ControlTab.Size = new System.Drawing.Size(133, 219);
+            this.ControlTab.Size = new System.Drawing.Size(154, 219);
             this.ControlTab.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.ControlTab.TabIndex = 0;
             this.ControlTab.Selected += new System.Windows.Forms.TabControlEventHandler(this.ControlTab_Selected);
@@ -246,7 +247,7 @@
             this.InstrumentPage.Location = new System.Drawing.Point(4, 73);
             this.InstrumentPage.Name = "InstrumentPage";
             this.InstrumentPage.Padding = new System.Windows.Forms.Padding(3);
-            this.InstrumentPage.Size = new System.Drawing.Size(125, 142);
+            this.InstrumentPage.Size = new System.Drawing.Size(146, 142);
             this.InstrumentPage.TabIndex = 0;
             this.InstrumentPage.Text = "仪器仪表";
             // 
@@ -257,7 +258,7 @@
             this.InstruementFlow.Dock = System.Windows.Forms.DockStyle.Fill;
             this.InstruementFlow.Location = new System.Drawing.Point(3, 3);
             this.InstruementFlow.Name = "InstruementFlow";
-            this.InstruementFlow.Size = new System.Drawing.Size(119, 136);
+            this.InstruementFlow.Size = new System.Drawing.Size(140, 136);
             this.InstruementFlow.TabIndex = 0;
             // 
             // MethodPage
@@ -267,7 +268,7 @@
             this.MethodPage.Location = new System.Drawing.Point(4, 73);
             this.MethodPage.Name = "MethodPage";
             this.MethodPage.Padding = new System.Windows.Forms.Padding(3);
-            this.MethodPage.Size = new System.Drawing.Size(108, 142);
+            this.MethodPage.Size = new System.Drawing.Size(146, 142);
             this.MethodPage.TabIndex = 1;
             this.MethodPage.Text = "Method";
             // 
@@ -276,33 +277,12 @@
             this.MethodFlow.AutoScroll = true;
             this.MethodFlow.Controls.Add(this.flow_Result1);
             this.MethodFlow.Controls.Add(this.flow_Add1);
+            this.MethodFlow.Controls.Add(this.flow_MessBox1);
             this.MethodFlow.Dock = System.Windows.Forms.DockStyle.Fill;
             this.MethodFlow.Location = new System.Drawing.Point(3, 3);
             this.MethodFlow.Name = "MethodFlow";
-            this.MethodFlow.Size = new System.Drawing.Size(102, 136);
+            this.MethodFlow.Size = new System.Drawing.Size(140, 136);
             this.MethodFlow.TabIndex = 0;
-            // 
-            // flow_Result1
-            // 
-            this.flow_Result1.BackColor = System.Drawing.Color.Transparent;
-            this.flow_Result1.ButtonText = "PR";
-            this.flow_Result1.ControlParent = this.MethodFlow;
-            this.flow_Result1.LabelText = "ShowResult";
-            this.flow_Result1.Location = new System.Drawing.Point(3, 3);
-            this.flow_Result1.Name = "flow_Result1";
-            this.flow_Result1.Size = new System.Drawing.Size(69, 75);
-            this.flow_Result1.TabIndex = 2;
-            // 
-            // flow_Add1
-            // 
-            this.flow_Add1.BackColor = System.Drawing.Color.Transparent;
-            this.flow_Add1.ButtonText = "Meth";
-            this.flow_Add1.ControlParent = this.MethodFlow;
-            this.flow_Add1.LabelText = "ADD";
-            this.flow_Add1.Location = new System.Drawing.Point(3, 84);
-            this.flow_Add1.Name = "flow_Add1";
-            this.flow_Add1.Size = new System.Drawing.Size(69, 75);
-            this.flow_Add1.TabIndex = 1;
             // 
             // HidePage
             // 
@@ -311,7 +291,7 @@
             this.HidePage.Location = new System.Drawing.Point(4, 73);
             this.HidePage.Name = "HidePage";
             this.HidePage.Padding = new System.Windows.Forms.Padding(3);
-            this.HidePage.Size = new System.Drawing.Size(108, 142);
+            this.HidePage.Size = new System.Drawing.Size(146, 142);
             this.HidePage.TabIndex = 2;
             this.HidePage.Text = "hidepage";
             // 
@@ -321,7 +301,7 @@
             this.DMMFlow.Dock = System.Windows.Forms.DockStyle.Fill;
             this.DMMFlow.Location = new System.Drawing.Point(3, 3);
             this.DMMFlow.Name = "DMMFlow";
-            this.DMMFlow.Size = new System.Drawing.Size(102, 136);
+            this.DMMFlow.Size = new System.Drawing.Size(140, 136);
             this.DMMFlow.TabIndex = 0;
             // 
             // ScopeFlow
@@ -342,7 +322,7 @@
             "Main"});
             this.listBox1.Location = new System.Drawing.Point(0, 0);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(133, 200);
+            this.listBox1.Size = new System.Drawing.Size(154, 200);
             this.listBox1.TabIndex = 0;
             // 
             // splitRight
@@ -358,8 +338,8 @@
             // splitRight.Panel2
             // 
             this.splitRight.Panel2.Controls.Add(this.splitRightUp);
-            this.splitRight.Size = new System.Drawing.Size(580, 425);
-            this.splitRight.SplitterDistance = 459;
+            this.splitRight.Size = new System.Drawing.Size(559, 425);
+            this.splitRight.SplitterDistance = 442;
             this.splitRight.TabIndex = 0;
             // 
             // splitContainer1
@@ -377,7 +357,7 @@
             // 
             this.splitContainer1.Panel2.Controls.Add(this.resultListView);
             this.splitContainer1.Panel2.Controls.Add(this.errorListView);
-            this.splitContainer1.Size = new System.Drawing.Size(459, 425);
+            this.splitContainer1.Size = new System.Drawing.Size(442, 425);
             this.splitContainer1.SplitterDistance = 289;
             this.splitContainer1.TabIndex = 1;
             // 
@@ -388,7 +368,7 @@
             this.formControl.Location = new System.Drawing.Point(0, 0);
             this.formControl.Name = "formControl";
             this.formControl.SelectedIndex = 0;
-            this.formControl.Size = new System.Drawing.Size(459, 289);
+            this.formControl.Size = new System.Drawing.Size(442, 289);
             this.formControl.TabIndex = 0;
             // 
             // MainPage
@@ -397,7 +377,7 @@
             this.MainPage.Location = new System.Drawing.Point(4, 22);
             this.MainPage.Name = "MainPage";
             this.MainPage.Padding = new System.Windows.Forms.Padding(3);
-            this.MainPage.Size = new System.Drawing.Size(451, 263);
+            this.MainPage.Size = new System.Drawing.Size(434, 263);
             this.MainPage.TabIndex = 1;
             this.MainPage.Text = "Main";
             this.MainPage.UseVisualStyleBackColor = true;
@@ -419,7 +399,7 @@
             this.resultListView.GridLines = true;
             this.resultListView.Location = new System.Drawing.Point(0, 0);
             this.resultListView.Name = "resultListView";
-            this.resultListView.Size = new System.Drawing.Size(459, 132);
+            this.resultListView.Size = new System.Drawing.Size(442, 132);
             this.resultListView.TabIndex = 1;
             this.resultListView.UseCompatibleStateImageBehavior = false;
             this.resultListView.View = System.Windows.Forms.View.Details;
@@ -431,7 +411,7 @@
             // columnHeader6
             // 
             this.columnHeader6.Text = "测试项名称";
-            this.columnHeader6.Width = 150;
+            this.columnHeader6.Width = 250;
             // 
             // columnHeader3
             // 
@@ -440,6 +420,7 @@
             // columnHeader2
             // 
             this.columnHeader2.Text = "测量值";
+            this.columnHeader2.Width = 120;
             // 
             // columnHeader4
             // 
@@ -456,14 +437,21 @@
             this.关闭窗口ToolStripMenuItem,
             this.输出为excleToolStripMenuItem});
             this.closeDwonWin.Name = "closeDwonWin";
-            this.closeDwonWin.Size = new System.Drawing.Size(153, 70);
+            this.closeDwonWin.Size = new System.Drawing.Size(142, 48);
             // 
             // 关闭窗口ToolStripMenuItem
             // 
             this.关闭窗口ToolStripMenuItem.Name = "关闭窗口ToolStripMenuItem";
-            this.关闭窗口ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.关闭窗口ToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
             this.关闭窗口ToolStripMenuItem.Text = "关闭窗口";
             this.关闭窗口ToolStripMenuItem.Click += new System.EventHandler(this.关闭窗口ToolStripMenuItem_Click);
+            // 
+            // 输出为excleToolStripMenuItem
+            // 
+            this.输出为excleToolStripMenuItem.Name = "输出为excleToolStripMenuItem";
+            this.输出为excleToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
+            this.输出为excleToolStripMenuItem.Text = "输出为excle";
+            this.输出为excleToolStripMenuItem.Click += new System.EventHandler(this.输出为excleToolStripMenuItem_Click);
             // 
             // errorListView
             // 
@@ -478,7 +466,7 @@
             this.errorListView.GridLines = true;
             this.errorListView.Location = new System.Drawing.Point(0, 0);
             this.errorListView.Name = "errorListView";
-            this.errorListView.Size = new System.Drawing.Size(459, 132);
+            this.errorListView.Size = new System.Drawing.Size(442, 132);
             this.errorListView.TabIndex = 0;
             this.errorListView.UseCompatibleStateImageBehavior = false;
             this.errorListView.View = System.Windows.Forms.View.Details;
@@ -512,7 +500,7 @@
             // splitRightUp.Panel2
             // 
             this.splitRightUp.Panel2.Controls.Add(this.userVarPanel);
-            this.splitRightUp.Size = new System.Drawing.Size(117, 425);
+            this.splitRightUp.Size = new System.Drawing.Size(113, 425);
             this.splitRightUp.SplitterDistance = 137;
             this.splitRightUp.TabIndex = 0;
             // 
@@ -524,7 +512,7 @@
             this.varPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.varPanel.Location = new System.Drawing.Point(0, 0);
             this.varPanel.Name = "varPanel";
-            this.varPanel.Size = new System.Drawing.Size(115, 135);
+            this.varPanel.Size = new System.Drawing.Size(111, 135);
             this.varPanel.TabIndex = 0;
             this.varPanel.SizeChanged += new System.EventHandler(this.varPanel_SizeChanged);
             // 
@@ -537,7 +525,7 @@
             this.userVarPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.userVarPanel.Location = new System.Drawing.Point(0, 0);
             this.userVarPanel.Name = "userVarPanel";
-            this.userVarPanel.Size = new System.Drawing.Size(115, 282);
+            this.userVarPanel.Size = new System.Drawing.Size(111, 282);
             this.userVarPanel.TabIndex = 1;
             this.userVarPanel.SizeChanged += new System.EventHandler(this.userVarPanel_SizeChanged);
             // 
@@ -555,12 +543,38 @@
             this.插入变量ToolStripMenuItem.Text = "插入变量";
             this.插入变量ToolStripMenuItem.Click += new System.EventHandler(this.插入变量ToolStripMenuItem_Click);
             // 
-            // 输出为excleToolStripMenuItem
+            // flow_Result1
             // 
-            this.输出为excleToolStripMenuItem.Name = "输出为excleToolStripMenuItem";
-            this.输出为excleToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.输出为excleToolStripMenuItem.Text = "输出为excle";
-            this.输出为excleToolStripMenuItem.Click += new System.EventHandler(this.输出为excleToolStripMenuItem_Click);
+            this.flow_Result1.BackColor = System.Drawing.Color.Transparent;
+            this.flow_Result1.ButtonText = "PR";
+            this.flow_Result1.ControlParent = this.MethodFlow;
+            this.flow_Result1.LabelText = "ShowResult";
+            this.flow_Result1.Location = new System.Drawing.Point(3, 3);
+            this.flow_Result1.Name = "flow_Result1";
+            this.flow_Result1.Size = new System.Drawing.Size(69, 75);
+            this.flow_Result1.TabIndex = 2;
+            // 
+            // flow_Add1
+            // 
+            this.flow_Add1.BackColor = System.Drawing.Color.Transparent;
+            this.flow_Add1.ButtonText = "Meth";
+            this.flow_Add1.ControlParent = this.MethodFlow;
+            this.flow_Add1.LabelText = "ADD";
+            this.flow_Add1.Location = new System.Drawing.Point(3, 84);
+            this.flow_Add1.Name = "flow_Add1";
+            this.flow_Add1.Size = new System.Drawing.Size(69, 75);
+            this.flow_Add1.TabIndex = 1;
+            // 
+            // flow_MessBox1
+            // 
+            this.flow_MessBox1.BackColor = System.Drawing.Color.Transparent;
+            this.flow_MessBox1.ButtonText = "Mes";
+            this.flow_MessBox1.ControlParent = this.MethodFlow;
+            this.flow_MessBox1.LabelText = "MessageBox";
+            this.flow_MessBox1.Location = new System.Drawing.Point(3, 165);
+            this.flow_MessBox1.Name = "flow_MessBox1";
+            this.flow_MessBox1.Size = new System.Drawing.Size(69, 75);
+            this.flow_MessBox1.TabIndex = 3;
             // 
             // MainForm
             // 
@@ -658,6 +672,7 @@
         private System.Windows.Forms.Button startButton;
         private MethodFlowControl.Flow_Result flow_Result1;
         private System.Windows.Forms.ToolStripMenuItem 输出为excleToolStripMenuItem;
+        private MethodFlowControl.Flow_MessBox flow_MessBox1;
 
 
 

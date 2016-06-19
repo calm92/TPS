@@ -44,10 +44,16 @@
     <Reference Include="System.Xml" />
     <Reference Include="TpsControl, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\FuncControl\FuncControl\bin\Release\TpsControl.dll</HintPath>
+      <HintPath>..\..\FuncControl\FuncControl\bin\Debug\TpsControl.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DMMClose_Meter.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DMMClose_Meter.Designer.cs">
+      <DependentUpon>DMMClose_Meter.cs</DependentUpon>
+    </Compile>
     <Compile Include="DMMFetchDig_Meter.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -75,6 +81,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="DMMClose_Meter.resx">
+      <DependentUpon>DMMClose_Meter.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DMMFetchDig_Meter.resx">
       <DependentUpon>DMMFetchDig_Meter.cs</DependentUpon>
     </EmbeddedResource>
