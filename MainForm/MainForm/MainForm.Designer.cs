@@ -45,6 +45,10 @@
             this.InstruementFlow = new System.Windows.Forms.FlowLayoutPanel();
             this.MethodPage = new System.Windows.Forms.TabPage();
             this.MethodFlow = new System.Windows.Forms.FlowLayoutPanel();
+            this.flow_Result1 = new MethodFlowControl.Flow_Result();
+            this.flow_Add1 = new MethodFlowControl.Flow_Add();
+            this.flow_MessBox1 = new MethodFlowControl.Flow_MessBox();
+            this.flow_Move1 = new MethodFlowControl.Flow_Move();
             this.HidePage = new System.Windows.Forms.TabPage();
             this.DMMFlow = new System.Windows.Forms.FlowLayoutPanel();
             this.ScopeFlow = new System.Windows.Forms.FlowLayoutPanel();
@@ -74,9 +78,7 @@
             this.插入变量ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.DrawLineTip = new System.Windows.Forms.ToolTip(this.components);
             this.buildTip = new System.Windows.Forms.ToolTip(this.components);
-            this.flow_Result1 = new MethodFlowControl.Flow_Result();
-            this.flow_Add1 = new MethodFlowControl.Flow_Add();
-            this.flow_MessBox1 = new MethodFlowControl.Flow_MessBox();
+            this.flow_MotorClose1 = new MethodFlowControl.Flow_MotorClose();
             this.MenuPanel.SuspendLayout();
             this.menu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitLeft)).BeginInit();
@@ -278,11 +280,57 @@
             this.MethodFlow.Controls.Add(this.flow_Result1);
             this.MethodFlow.Controls.Add(this.flow_Add1);
             this.MethodFlow.Controls.Add(this.flow_MessBox1);
+            this.MethodFlow.Controls.Add(this.flow_Move1);
+            this.MethodFlow.Controls.Add(this.flow_MotorClose1);
             this.MethodFlow.Dock = System.Windows.Forms.DockStyle.Fill;
             this.MethodFlow.Location = new System.Drawing.Point(3, 3);
             this.MethodFlow.Name = "MethodFlow";
             this.MethodFlow.Size = new System.Drawing.Size(140, 136);
             this.MethodFlow.TabIndex = 0;
+            // 
+            // flow_Result1
+            // 
+            this.flow_Result1.BackColor = System.Drawing.Color.Transparent;
+            this.flow_Result1.ButtonText = "PR";
+            this.flow_Result1.ControlParent = this.MethodFlow;
+            this.flow_Result1.LabelText = "ShowResult";
+            this.flow_Result1.Location = new System.Drawing.Point(3, 3);
+            this.flow_Result1.Name = "flow_Result1";
+            this.flow_Result1.Size = new System.Drawing.Size(69, 75);
+            this.flow_Result1.TabIndex = 2;
+            // 
+            // flow_Add1
+            // 
+            this.flow_Add1.BackColor = System.Drawing.Color.Transparent;
+            this.flow_Add1.ButtonText = "Meth";
+            this.flow_Add1.ControlParent = this.MethodFlow;
+            this.flow_Add1.LabelText = "ADD";
+            this.flow_Add1.Location = new System.Drawing.Point(3, 84);
+            this.flow_Add1.Name = "flow_Add1";
+            this.flow_Add1.Size = new System.Drawing.Size(69, 75);
+            this.flow_Add1.TabIndex = 1;
+            // 
+            // flow_MessBox1
+            // 
+            this.flow_MessBox1.BackColor = System.Drawing.Color.Transparent;
+            this.flow_MessBox1.ButtonText = "Mes";
+            this.flow_MessBox1.ControlParent = this.MethodFlow;
+            this.flow_MessBox1.LabelText = "MessageBox";
+            this.flow_MessBox1.Location = new System.Drawing.Point(3, 165);
+            this.flow_MessBox1.Name = "flow_MessBox1";
+            this.flow_MessBox1.Size = new System.Drawing.Size(69, 75);
+            this.flow_MessBox1.TabIndex = 3;
+            // 
+            // flow_Move1
+            // 
+            this.flow_Move1.BackColor = System.Drawing.Color.Transparent;
+            this.flow_Move1.ButtonText = "Move";
+            this.flow_Move1.ControlParent = this.MethodFlow;
+            this.flow_Move1.LabelText = "Move";
+            this.flow_Move1.Location = new System.Drawing.Point(3, 246);
+            this.flow_Move1.Name = "flow_Move1";
+            this.flow_Move1.Size = new System.Drawing.Size(69, 75);
+            this.flow_Move1.TabIndex = 4;
             // 
             // HidePage
             // 
@@ -543,38 +591,16 @@
             this.插入变量ToolStripMenuItem.Text = "插入变量";
             this.插入变量ToolStripMenuItem.Click += new System.EventHandler(this.插入变量ToolStripMenuItem_Click);
             // 
-            // flow_Result1
+            // flow_MotorClose1
             // 
-            this.flow_Result1.BackColor = System.Drawing.Color.Transparent;
-            this.flow_Result1.ButtonText = "PR";
-            this.flow_Result1.ControlParent = this.MethodFlow;
-            this.flow_Result1.LabelText = "ShowResult";
-            this.flow_Result1.Location = new System.Drawing.Point(3, 3);
-            this.flow_Result1.Name = "flow_Result1";
-            this.flow_Result1.Size = new System.Drawing.Size(69, 75);
-            this.flow_Result1.TabIndex = 2;
-            // 
-            // flow_Add1
-            // 
-            this.flow_Add1.BackColor = System.Drawing.Color.Transparent;
-            this.flow_Add1.ButtonText = "Meth";
-            this.flow_Add1.ControlParent = this.MethodFlow;
-            this.flow_Add1.LabelText = "ADD";
-            this.flow_Add1.Location = new System.Drawing.Point(3, 84);
-            this.flow_Add1.Name = "flow_Add1";
-            this.flow_Add1.Size = new System.Drawing.Size(69, 75);
-            this.flow_Add1.TabIndex = 1;
-            // 
-            // flow_MessBox1
-            // 
-            this.flow_MessBox1.BackColor = System.Drawing.Color.Transparent;
-            this.flow_MessBox1.ButtonText = "Mes";
-            this.flow_MessBox1.ControlParent = this.MethodFlow;
-            this.flow_MessBox1.LabelText = "MessageBox";
-            this.flow_MessBox1.Location = new System.Drawing.Point(3, 165);
-            this.flow_MessBox1.Name = "flow_MessBox1";
-            this.flow_MessBox1.Size = new System.Drawing.Size(69, 75);
-            this.flow_MessBox1.TabIndex = 3;
+            this.flow_MotorClose1.BackColor = System.Drawing.Color.Transparent;
+            this.flow_MotorClose1.ButtonText = "Moter";
+            this.flow_MotorClose1.ControlParent = this.MethodFlow;
+            this.flow_MotorClose1.LabelText = "Close";
+            this.flow_MotorClose1.Location = new System.Drawing.Point(3, 327);
+            this.flow_MotorClose1.Name = "flow_MotorClose1";
+            this.flow_MotorClose1.Size = new System.Drawing.Size(69, 75);
+            this.flow_MotorClose1.TabIndex = 5;
             // 
             // MainForm
             // 
@@ -673,6 +699,8 @@
         private MethodFlowControl.Flow_Result flow_Result1;
         private System.Windows.Forms.ToolStripMenuItem 输出为excleToolStripMenuItem;
         private MethodFlowControl.Flow_MessBox flow_MessBox1;
+        private MethodFlowControl.Flow_Move flow_Move1;
+        private MethodFlowControl.Flow_MotorClose flow_MotorClose1;
 
 
 

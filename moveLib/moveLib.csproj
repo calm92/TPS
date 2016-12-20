@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{98E819C5-8FB7-4DE6-995F-92FCFF6E03F6}</ProjectGuid>
+    <ProjectGuid>{ABA5A67B-F9ED-4B31-A73F-75EB55044528}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>MethodFlowControl</RootNamespace>
-    <AssemblyName>MethodFlowControl</AssemblyName>
+    <RootNamespace>moveLib</RootNamespace>
+    <AssemblyName>moveLib</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -20,8 +20,6 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <UseVSHostingProcess>false</UseVSHostingProcess>
-    <PlatformTarget>AnyCPU</PlatformTarget>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -32,58 +30,20 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Ag3446x_2_08">
-      <HintPath>..\..\..\..\..\..\..\..\ProgramData\Agilent\Command Expert\ScpiNetDrivers\Ag3446x_2_08.dll</HintPath>
-    </Reference>
-    <Reference Include="MethodMeter">
-      <HintPath>..\..\..\MeterControl\MethodMeter\MethodMeter\bin\Debug\MethodMeter.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Drawing" />
-    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
-    <Reference Include="TpsControl">
-      <HintPath>..\..\..\FuncControl\FuncControl\bin\Debug\TpsControl.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Flow_MotorClose.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Flow_MotorClose.Designer.cs">
-      <DependentUpon>Flow_MotorClose.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Flow_Move.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Flow_Move.Designer.cs">
-      <DependentUpon>Flow_Move.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Flow_Result.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Flow_Result.Designer.cs">
-      <DependentUpon>Flow_Result.cs</DependentUpon>
+    <Compile Include="Class1.cs" />
+    <Compile Include="Dmc1380.cs">
+      <SubType>Code</SubType>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Flow_Add.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Flow_Add.Designer.cs">
-      <DependentUpon>Flow_Add.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Flow_MessBox.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Flow_MessBox.Designer.cs">
-      <DependentUpon>Flow_MessBox.cs</DependentUpon>
-    </Compile>
-    <Service Include="{94E38DFF-614B-4cbd-B67C-F211BB35CE8B}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

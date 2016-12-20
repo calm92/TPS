@@ -21,6 +21,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <UseVSHostingProcess>false</UseVSHostingProcess>
+    <PlatformTarget>x64</PlatformTarget>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -32,6 +33,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Ag3446x_2_08, Version=0.0.0.0, Culture=neutral, PublicKeyToken=344b812ea93ad2d2, processorArchitecture=MSIL" />
+    <Reference Include="moveLib">
+      <HintPath>..\..\..\..\..\Visual Studio 2013\Projects\moveLib\bin\Debug\moveLib.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -47,11 +51,23 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Meter_MotorClose.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Meter_MotorClose.Designer.cs">
+      <DependentUpon>Meter_MotorClose.cs</DependentUpon>
+    </Compile>
     <Compile Include="Meter_Add.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Meter_Add.Designer.cs">
       <DependentUpon>Meter_Add.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Meter_Move.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Meter_Move.Designer.cs">
+      <DependentUpon>Meter_Move.cs</DependentUpon>
     </Compile>
     <Compile Include="Meter_Result.cs">
       <SubType>UserControl</SubType>
@@ -74,6 +90,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Meter_MessBox.resx">
       <DependentUpon>Meter_MessBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Meter_MotorClose.resx">
+      <DependentUpon>Meter_MotorClose.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Meter_Move.resx">
+      <DependentUpon>Meter_Move.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Meter_Result.resx">
       <DependentUpon>Meter_Result.cs</DependentUpon>

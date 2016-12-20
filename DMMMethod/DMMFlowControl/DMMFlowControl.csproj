@@ -30,7 +30,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Ag3446x_2_08, Version=0.0.0.0, Culture=neutral, PublicKeyToken=344b812ea93ad2d2, processorArchitecture=MSIL" />
+    <Reference Include="Ag3446x_2_08">
+      <HintPath>..\..\..\..\..\..\..\ProgramData\Agilent\Command Expert\ScpiNetDrivers\Ag3446x_2_08.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
